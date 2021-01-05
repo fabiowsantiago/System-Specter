@@ -1,0 +1,64 @@
+﻿<!Doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Specter System</title>
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/styleHome.css" rel="stylesheet" />
+    </head>
+    <body>
+        <nav class="navbar-expand-lg fixed-top" style="background-color:#002060">
+            <ul class="navbar navbar-expand-md justify-content-end">
+                <li class="nav-item"><a class="nav-link" href="~/Home/Login" style="color:white">LOGIN</a></li>
+                <li class="nav-item"><a class="nav-link" href="~/Home/CadastrarPessoa" style="color:white">CADASTRE-SE</a></li>
+            </ul>
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #E0FFFF">
+                <a><img src="~/Models/imagens/icones/logoMarca.png" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div>
+                    <ul class="navbar navbar-collapse mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="~/Home/Index" style="color:black">INÍCIO</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" style="color:black">EVENTOS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Home/SobreEmpresa" style="color:black">SOBRE</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </nav>
+
+        <div>
+            @RenderBody()
+        </div>
+    
+        <footer>
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <div class="navbar-collapse collapse ">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item liRodape">
+                            <img src="~/Models/imagens/icones/icone-telefone.png" class="imagemRodape" />
+                            (71) 98799-1958 / 99205-0116
+                        </li>
+                        <li class="nav-item liRodape2">
+                            <img src="~/Models/imagens/icones/icone-email.png" class="imagemRodape" />
+                            contatoexpertnutri@gmail.com
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item">
+                            <a href="https://www.instagram.com/expertnutri/">
+                                <img src="~/Models/imagens/icones/icone-Instagram.png" class="imagemRodape" />
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://www.facebook.com/expertnutri2019/">
+                                <img src="~/Models/imagens/icones/icone-face.png" class="imagemRodape" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </footer>
+    </body>
+</html>

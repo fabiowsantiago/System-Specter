@@ -1,0 +1,139 @@
+﻿
+<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/styleAreaAluno.css" rel="stylesheet" />
+    <script src="~/Scripts/ScriptInscricao.js"></script>
+</head>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAreaAluno.cshtml";
+}
+
+@model Specter_System.Models.Entitys.Pedido
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+<div style="padding-top:11%; padding-left:25%">
+    <div class="form-group row">
+        <label class="col-sm-1 col-form-label">DATA</label>
+        <div class="col-sm-3" style="padding-left:8%;padding-top: 0.7%">
+            @Html.DisplayFor(model => model.Data, new { @class = "form-control" })
+        </div>
+        <label class="col-sm-1 col-form-label" id="labHora">Horario</label>
+        <div class="col-sm-2" style="padding-left:1%;padding-top: 1%">
+            @Html.DisplayFor(model => model.Horario, new { @class = "form-control" })
+        </div>
+
+    </div>
+    <div class="form-group row" id="divNomeCurso">
+        <label class="col-sm-1 col-form-label">Curso</label>
+        <div class="col-sm-7" style="padding-left:8%">
+            @Html.DisplayFor(model => model.Curso.Nome, new { @class = "form-control", @placeholder = "Nome do Curso", @style = "width:83%" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-1 col-form-label">Valor</label>
+        <div id="valorTotal" class="col-sm-3" style="padding-left: 8%">
+            R$ @Html.DisplayFor(model => model.Curso.Valor, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row" div="divOpInscricao">
+        <label class="col-sm-2 col-form-label">Tipo de Inscrição</label>
+        <select id="selectOpInscricao" class="form-control col-sm-2" onchange="javascript:SelecionarOpInscricao(this)">
+            <option value="[Selecione]">[Selecione]</option>
+            <option value="Individual">Individual</option>
+            <option value="Grupo">Grupo</option>
+        </select>
+    </div>
+    <div id="divOpGrupo" style="display:none;">
+        <label id="labOpGrupo">Escolha uma opção</label>
+        <select id="selectOpGrupo" onclick="javascript:SelecionarOpGrupo(this)">
+            <option selected>[Selecione]</option>
+            <option value="Criar">Criar</option>
+        </select>
+    </div>
+    <br />
+    <div id="divReposta" class="form-group row" style="display: inline">
+        <label class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-6">
+            <b> @Html.DisplayFor(model => model.Resposta)</b>
+        </div>
+    </div>
+
+    <div id="divCriarGrupo" style="display:none">
+        <div class="form-group row" style="padding-left: 2%">
+            <label class="col-sm-3 col-form-label">Nome do Grupo</label>
+            <div class="col-sm-6">
+                @Html.TextBoxFor(model => model.Grupo.Nome, new { @class = "form-control", @placeholder = "Digite o nome do Grupo" })
+            </div>
+        </div>
+        <div class="form-group row" style="padding-left: 2%">
+            <label class="col-sm-3 col-form-label">Quantidade de Integrantes</label>
+            <div class="col-sm-2">
+                <select id="idQtdIntegrantes" name="QtdIntegrantes" onchange="javascript:CalcularDesconto(this)" class="form-control">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row" style="padding-left: 2%">
+            <label class="col-sm-3 col-form-label">Nova Senha</label>
+            <div class="col-sm-6">
+                @Html.PasswordFor(model => model.Grupo.Senha, new { @class = "form-control", @placeholder = "Digite uma nova senha" })
+            </div>
+        </div>
+        <div class="form-group row" style="padding-left: 2%">
+            <label class="col-sm-3 col-form-label">Confirmar Senha</label>
+            <div class="col-sm-6">
+                @Html.PasswordFor(model => model.Grupo.ConfSenha, new { @class = "form-control", @placeholder = "Digite novamente a senha criada" })
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center">
+            <input type="submit" class="btn btn-primary" @*name="action:Index"*@ value="CRIAR" />
+        </div>
+    </div>
+    <div style="display:none" id="buttonFinalizar">
+        <div class="form-group row justify-content-center">
+            <input type="submit" value="FINALIZAR" class="btn btn-success" />
+        </div>
+    </div>
+
+    <div id="pagSeguro" style="display:none;">
+        <h2>PAG SEGURO</h2>
+    </div>
+
+    @*@if (ViewBag.Message != null)
+        {
+
+            if (ViewBag.Message == "Grupo criado com sucesso!")
+            {
+                <script type="text/javascript">
+
+                window.onload = function () {
+                                    alert("Grupo criado com sucesso");
+                                }
+                document.getElementById('pagSeguro').style.display = 'inline';
+
+                </script>
+            }
+            else
+            {
+                <script src="~/Scripts/ScriptInscricao.js" type="text/javascript">
+
+                    window.onload = function () {
+                        alert("Já existe um grupo com este nome");
+                    }
+                </script>
+            }
+        }*@
+
+</div>
+
+}

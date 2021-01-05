@@ -1,0 +1,87 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+@model Specter_System.Models.Entitys.Produto
+
+@{
+    ViewBag.Title = "CarrinhoCompra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 style="padding-top:13%; padding-left:1%">Carrinho de Compra</h4>
+
+<div class="modal-body" style="padding-left: 3%">
+    <div class="form-horizontal">
+        <div>
+            @Html.HiddenFor(model => model.Nome)
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Nome, new { @class = "control-label col-md-2" })
+            <div class="col-sm-6">
+                @Html.DisplayFor(model => model.Nome)
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Palestrante, new { @class = "control-label col-md-2" })
+            <div class="col-sm-6">
+                @Html.DisplayFor(model => model.Palestrante)
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Modalidade, new { @class = "control-label col-md-2" })
+            <div class="col-sm-6">
+                @Html.DisplayFor(model => model.Modalidade)
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Data, new { @class = "control-label col-md-2" })
+            <div class="col-sm-6">
+                @Html.DisplayFor(model => model.Data)
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Horario, new { @class = "control-label col-md-2" })
+            <div class="col-sm-6">
+                @Html.DisplayFor(model => model.Horario)
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Valor, new { @class = "control-label col-md-2" })
+            <div class="col-sm-6">
+                R$ @Html.DisplayNameFor(model => model.Valor),00
+            </div>
+        </div>
+    </div>
+    <div style="padding-left: 3%">
+        <form target="pagseguro" method="post" action="http://localhost:9090/checkout/checkout.jhtml">
+            <input type="hidden" name="email_cobranca" value="suporte@lojamodelo.com.br" />
+            <input type="hidden" name="tipo" value="CBR" />
+            <input type="hidden" name="moeda" value="BRL" />
+            <input type="hidden" name="item_id" value="<%@Session["codigoCurso"]%>" />
+            <input type="hidden" name="item_descr" value="<%@Session["nomeCurso"].ToString() %>" />
+            <input type="hidden" name="item_quant" value="1" />
+            <input type="hidden" name="item_valor" value="<%@Session["valorTotalCurso"]%>" />
+            <input type="hidden" name="frete" value="0" />
+            <input type="hidden" name="peso" value="0" />
+            <input type="image" name="submit" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/99x61-comprar-assina.gif" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+        </form>
+        @*<form target="pagseguro" method="post" action="https://pagseguro.uol.com.br/checkout/checkout.jhtml">
+                <input type="hidden" name="email_cobranca" value="suporte@lojamodelo.com.br" />
+                <input type="hidden" name="tipo" value="CBR" />
+                <input type="hidden" name="moeda" value="BRL" />
+                <input type="hidden" name="item_id" value="<%@Session["codigoCurso"]%>" />
+                <input type="hidden" name="item_descr" value="<%@Session["nomeCurso"].ToString() %>" />
+                <input type="hidden" name="item_quant" value="1" />
+                <input type="hidden" name="item_valor" value="<%@Session["valorTotalCurso"]%>" />
+                <input type="hidden" name="frete" value="0" />
+                <input type="hidden" name="peso" value="0" />
+                <input type="image" name="submit" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/99x61-comprar-assina.gif" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+            </form>*@
+
+    </div>
+    @*<p style="padding-left: 3%">
+            <input type="submit" name="action:FinalizarPedido" class="btn btn-primary" value="FINALIZAR"/> |
+
+        </p>*@
+</div>

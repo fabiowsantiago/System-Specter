@@ -1,0 +1,29 @@
+﻿
+<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/styleHome.css" rel="stylesheet" />
+</head>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="padding-left: 20%; padding-top: 18%">
+    <div>
+        <h2 style="padding-left: 20%">Conheça Nossos Cursos</h2>
+    </div>
+    <div class="table-responsive" style="padding-top:6%">
+        <table class="table table-borderless" cellspacing="20">
+            <tbody>
+                <tr>
+                    <td class="tdEspaco">
+                        <a href="~/CursosOnline/Index"><img src="~/Models/imagens/icones/icone-online.png" class="img-responsive" /></a>
+                    </td>
+                    <td class="tdEspaco">
+                        <a href="~/CursosPresenciais/Index"><img src="~/Models/imagens/icones/icone-presenciais.png" class="img-responsive" /></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

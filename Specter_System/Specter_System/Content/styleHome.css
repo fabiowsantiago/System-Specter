@@ -1,0 +1,117 @@
+﻿* {
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: montserrat;
+    width: 100%;
+}
+
+header {
+    background-color: #002060;
+}
+
+
+.img {
+    height: 40px;
+    width: 40px;
+    left: 80px;
+}
+
+.formCadastro {
+    padding-top: 50px;
+    padding-left: 20%;
+}
+
+/*-------------------------------TABELA*------------------------*/
+
+td {
+    background: gray;
+    padding: 10px
+}
+
+.tdEspaco {
+    display: table;
+    float: left;
+    margin-right: 120px
+}
+
+table {
+    border-spacing: 5px;
+}
+
+/*------------------------------ RODAPE -----------------------*/
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+
+    background-color: #002060;
+    color: white;
+}
+
+
+.liRodape {
+    display: inline;
+    padding: 0px;
+    padding-left: 450px;
+}
+
+
+.liRodape2 {
+    display: inline;
+    padding: 0px;
+    padding-left: 50px;
+}
+
+
+.imagemRodape {
+    width: 25px;
+    height: 25px;
+}
+
+/*----------------------------- SOBRE ------------------------------*/
+.sobre {
+    padding-top: 15%;
+}
+
+    .sobre p {
+        padding-left: 90px;
+    }
+
+/*------------------------------TELA LOGIN -----------------------------*/
+.telaLogin {
+    border-radius: 65px;
+    width: 60%;
+    background-color: #002060;
+    height: 400px;
+}
+
+
+
+@media(max-width: 425px) {
+
+    .facet_sidebar {
+        padding-top: 18%;
+    }
+}
+
+@media(max-width: 360px) {
+    .facet_sidebar {
+        padding-top: 350px;
+        background-color: red;
+    }
+}
+
+@media(max-width: 320px) {
+    .facet_sidebar {
+        padding-top: 350px;
+        background-color: red;
+    }
+}

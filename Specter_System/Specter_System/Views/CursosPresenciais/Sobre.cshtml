@@ -1,0 +1,56 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+@{
+    ViewBag.Title = "Sobre";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="padding-top: 14%">
+
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        @model Specter_System.Models.Entitys.Produto
+
+        <div class="container-fluid">
+            <div>
+                @Html.HiddenFor(model => model.Nome)
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <figure>
+                        <img src="@Html.DisplayFor(model=>model.image.CaminhoPalestrante)" class="rounded-circle" style="height: 150px; width:150px" />
+                    </figure>
+                    <figcaption>
+                        @Html.TextBoxFor(model => model.Palestrante, new { @readonly = "readonly", @class = "form-control", style = "width: 100%" })
+                    </figcaption>
+                </div>
+                <div class="col-sm-2" style="padding-top: 5%">
+                    <input type="submit" name="action:ExibirCurriculo" class="btn btn-primary" value="VER CURRÍCULO" style="background-color: #002060" />
+                </div>
+                <div class="col-sm-2" style="padding-top: 5%">
+                    <input type="submit" name="action:RealizarIncricao" class="btn btn-primary" value="ADICIONAR AO CARRINHO" style=" background-color: #002060;" />
+                </div>
+            </div>
+            <div class="row" style="padding-top: 1%">
+                <div class="col-sm-4">
+                    <h3>Sobre o Curso</h3>
+                    @Html.DisplayTextFor(model => model.Sobre)
+                </div>
+                <div class="col-sm-5">
+                    <h3>Informações</h3>
+                    @Html.DisplayTextFor(model => model.Informacoes)
+                    <div>
+                        <b>Carga Horária:</b> @Html.DisplayFor(model => model.Carga_Horaria)
+                    </div>
+                    <div>
+                        <b>Investimento:</b> R$ @Html.DisplayFor(model => model.Valor)
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+    }
+</div>

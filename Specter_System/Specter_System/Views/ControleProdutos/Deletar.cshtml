@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdministrativo.cshtml";
+}
+
+<div style="padding-top: 5%; padding-left: 1%">
+
+    <h3>Deseja realmente exlcuir este curso?</h3>
+    <hr />
+
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        @model Specter_System.Models.Entitys.Produto
+
+        @Html.AntiForgeryToken()
+
+        <div style="padding-left: 3%">
+
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Codigo)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.TextBoxFor(model => model.Codigo)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Data)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Data)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Valor)
+                </dt>
+                <dd class="col-sm-10">
+                    R$ @Html.DisplayFor(model => model.Valor),00
+                </dd>
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Palestrante)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Palestrante)
+                </dd>
+            </dl>
+            <div class="form-group">
+                @*<input type="submit" value="DELETAR" name="action:Excluir" class="btn-danger" />*@
+                <input type="submit" class="btn-danger" value="DELETAR" name="action:Excluir" />
+            </div>
+            <div>
+                @Html.DisplayFor(model => model.LabResp)
+            </div>
+        </div>
+    }
+
+    <div style="padding-left: 3%">
+
+        @Html.ActionLink("Retornar", "Index")
+    </div>
+</div>

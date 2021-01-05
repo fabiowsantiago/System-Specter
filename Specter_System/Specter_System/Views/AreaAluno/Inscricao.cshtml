@@ -1,0 +1,180 @@
+﻿
+<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/styleAreaAluno.css" rel="stylesheet" />
+    <script src="~/Scripts/ScriptInscricao.js"></script>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+</head>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAreaAluno.cshtml";
+}
+
+@model Specter_System.Models.Entitys.Pedido
+
+<script type="text/javascript">
+    function mostraMsg(msg) {
+        alert(msg);
+    }
+
+    function exibirPagSeguro() {
+        document.getElementById("buttonFinalizar").style.display = "inline";
+    }
+
+</script>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <div style="padding-top:9.5%; padding-left:25%">
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label">DATA</label>
+            <div class="col-sm-3" style="padding-left:8%;padding-top: 0.7%">
+                @Html.DisplayFor(model => model.Data, new { @class = "form-control" })
+            </div>
+            <label class="col-sm-1 col-form-label" id="labHora">Horario</label>
+            <div class="col-sm-2" style="padding-left:1%;padding-top: 1%">
+                @Html.DisplayFor(model => model.Horario, new { @class = "form-control" })
+            </div>
+
+        </div>
+        <div class="form-group row" id="divNomeCurso">
+            <label class="col-sm-1 col-form-label">Curso</label>
+            <div class="col-sm-7" style="padding-left:8%">
+                @Html.DisplayFor(model => model.Produto.Nome, new { id = "txtDescricao", @class = "form-control", @placeholder = "Nome do Curso", @style = "width:83%" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label">Valor</label>
+            <div id="valorTotal" class="col-sm-3" style="padding-left: 8%">
+                R$ @Html.DisplayFor(model => model.Produto.Valor, new { id = "txtValor", @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group row" div="divOpInscricao">
+            <label class="col-sm-2 col-form-label">Tipo de Inscrição</label>
+            <select id="selectOpInscricao" class="form-control col-sm-2" onchange="javascript:SelecionarOpInscricao(this,@ViewBag.Message)">
+                <option value="[Selecione]">[Selecione]</option>
+                <option value="Individual">Individual</option>
+                <option value="Grupo">Grupo</option>
+            </select>
+        </div>
+
+        <fieldset class="border border-primary" id="divCriarGrupo" style="display:none; width: 80%; height: 50%">
+            <h4 class="text-center">CRIAR GRUPO</h4>
+            <div style="padding-left: 2%; padding-top: 2%">
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Nome do Grupo</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(model => model.Grupo.Nome, new { @class = "form-control", @value = "default", @placeholder = "Digite o nome do Grupo" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Quantidade de Integrantes</label>
+                    <div class="col-sm-3">
+                        <select id="idQtdIntegrantes" name="QtdIntegrantes" onchange="javascript:CalcularDesconto(this,@Model.Produto.Valor)" class="form-control">
+                            <option value="Selecione">[Selecione]</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Nova Senha</label>
+                    <div class="col-sm-6">
+                        @Html.PasswordFor(model => model.Grupo.Senha, new { @class = "form-control", @placeholder = "Digite uma nova senha", autocomplete = "off" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Confirmar Senha</label>
+                    <div class="col-sm-6">
+                        @Html.PasswordFor(model => model.Grupo.ConfSenha, new { @class = "form-control", @placeholder = "Digite novamente a senha criada" })
+                    </div>
+                </div>
+
+                <div class="form-group row justify-content-center">
+                    <input type="submit" class="btn btn-primary" name="action:Inscricao" value="CRIAR" />
+                </div>
+                <div class="form-group justify-content-center">
+                    @*<button class="checkout btn btn-success">Checkout</button>*@
+                    @*<input type="submit" class="btn btn-outline-success" name="action:ViewPagSeguro" value="EFETUAR PAGAMENTO"/>*@
+                </div>
+            </div>
+
+        </fieldset>
+
+        <div id="buttonFinalizar" style="display: none;">
+            <div class="form-group row justify-content-center" style=" padding-top: 5% ">
+                <input type="submit" class="checkout btn btn-success" value="EFETUAR PAGAMENTO" onclick="checkout()" />
+
+            </div>
+        </div>
+    </div>
+
+    <script>ExibirMensagem("@ViewBag.Message");</script>
+
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $(".checkout").click(function () {
+            if (confirm("Tem certeza que deseja fazer checkout no pagseguro?")) {
+
+                $.ajax({
+                    url: "/AreaAluno/Checkout",
+                    method: "post",
+                    type: "json",
+                    success: function (data) {
+                        window.location = data;
+                    }
+                });
+            }
+        });
+
+        $(".consultaTransacao").click(function () {
+            if (confirm("Tem certeza que deseja consultar transação?")) {
+
+                $.ajax({
+                    url: "/Home/ConsultaTransacao",
+                    method: "post",
+                    type: "json",
+                    success: function (data) {
+                        alert(data);
+                    }
+                })
+            }
+        });
+
+    });
+//function checkout() {
+//    $.ajax({
+//        url: "/AreaAluno/Checkout",
+//        data: { txtDescricao: $("#txtDescricao").val()},
+//        type: "post",
+//        dataType: "json",
+//        beforeSend: function (XMLHttpRequest) {
+//            $("#resultado").empty();
+//            $("#resultado").append("inicio");
+//        },
+//        error: function (XMLHttpRequest, textStatus, errorThrown) {
+//            $("#resultado").empty();
+//            $("#resultado").append("erro");
+//        },
+//        success: function (data) {
+//            alert(data);
+//            //// window.location = data;
+//            // $("#resultado").empty();
+//            // $(data).each(function () {
+//            //     $("#resultado").append("Resultado: " + this.Resultado + " <br/>");
+//            // });
+//        }
+//    });
+//}
+</script>

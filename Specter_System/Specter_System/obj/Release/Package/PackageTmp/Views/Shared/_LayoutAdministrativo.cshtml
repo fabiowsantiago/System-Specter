@@ -1,0 +1,58 @@
+﻿<!doctype html>
+
+<html>
+    <head>
+        <title>System Specter</title>
+        <meta charset="utf-8" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/styleHome.css" rel="stylesheet" />
+
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div style="background-color: #E0FFFF">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a><img src="~/Models/imagens/icones/logoMarca.png" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color:black">CADASTROS</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="~/ControleProdutos/Index" style="color:black">Curso</a>
+                                <a class="dropdown-item" href="#" style="color:black">Eventos</a>
+                                <a class="dropdown-item" href="#" style="color:black">Usuários</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:black">RELATÓRIOS <b class="caret"></b></a>
+                            <ul class="dropdown-menu multi-level">
+                                <li><a href="#" style="color:black">Cursos</a></li>
+                                <li><a href="#" style="color:black">Satisfações</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color:black">Financeiro</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" class="dropdown-item" style="color:black">Receitas</a></li>
+                                        <li><a href="#" class="dropdown-item" style="color:black">Despesas</a></li>
+                                        <li><a href="#" class="dropdown-item" style="color:black">K</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/Home/Index" class="nav-link itemMenu" style="color:black">SAIR</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div>
+            @RenderBody()
+        </div>
+    </body>
+</html>

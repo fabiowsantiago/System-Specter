@@ -1,0 +1,18 @@
+﻿header {
+    background-color: #E0FFFF;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.menu {
+    position: fixed;
+    padding-top: 10%;
+    width: 60%;
+}
+
+section {
+    padding-top: 10%;
+    padding-left: 25%;
+}

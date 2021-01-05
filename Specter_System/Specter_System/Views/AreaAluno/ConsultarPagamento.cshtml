@@ -1,0 +1,92 @@
+﻿<head>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+</head>
+
+@{ 
+    Layout = "~/Views/Shared/_LayoutAreaAluno.cshtml";
+}
+
+<div style="padding-top: 10%; padding-left: 25%">
+
+    <label class="col-form-label">CÓDIGO DE PAGAMENTO</label>
+    <div class="form-group row">
+
+        <input type="text" class="form-control" style="width: 40%" id="txtBusca" placeholder="Digite o código de pagamento do PAGSEGURO" name="txtBusca" />
+        <input type="submit" class="btn btn-success" value="CONSULTAR" onclick="buscaAjax()" />
+    </div>
+
+</div>
+
+<script type="text/javascript">
+            function buscaAjax() {
+                $.ajax({
+                    url: "/AreaAluno/ConsultaTransacao",
+                    data: { codPedido: $("#txtBusca").val() },
+                    type: "post",
+                    dataType: "json",
+                    //beforeSend: function (XMLHttpRequest) {
+                    //    $("#resultado").empty();
+                    //    $("#resultado").append("inicio");
+                    //},
+                     success: function (data) {
+                        alert(data);
+                       //// window.location = data;
+                       // $("#resultado").empty();
+                       // $(data).each(function () {
+                       //     $("#resultado").append("Resultado: " + this.Resultado + " <br/>");
+                       // });
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        $("#resultado").empty();
+                        $("#resultado").append("erro");
+                    },
+                   
+                });
+            }
+</script>
+
+@*@{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Index</h2>
+
+    <button class="checkout">Checkout</button>
+    <button class="consultaTransacao">Consulta transação</button>
+
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $(".checkout").click(function () {
+                if (confirm("Tem certeza que deseja fazer checkout no pagseguro?")) {
+
+                    $.ajax({
+                        url: "/Home/Checkout",
+                        method: "post",
+                        type: "json",
+                        success: function (data) {
+                            window.location = data;
+                        }
+                    });
+                }
+            });
+
+            $(".consultaTransacao").click(function () {
+                if (confirm("Tem certeza que deseja consultar transação?")) {
+
+
+                        $.ajax({
+                            url: "/Home/ConsultaTransacao",
+                            method: "post",
+                            type: "json",
+                            success: function (data) {
+                                alert(data);
+                            }
+                        })
+                    }
+                });
+
+        });
+    </script>*@
