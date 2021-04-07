@@ -1,0 +1,11 @@
+C:\Users\Fabio Santiago\source\repos\Specter_System\Specter_System.Validations\obj\Debug\Specter_System.Validations.csprojAssemblyReference.cache
+C:\Users\Fabio Santiago\source\repos\Specter_System\Specter_System.Validations\obj\Debug\Interop.InteropExtensionLib.dll
+C:\Users\Fabio Santiago\source\repos\Specter_System\Specter_System.Validations\obj\Debug\Specter_System.Validations.csproj.ResolveComReference.cache
+C:\Users\Fabio Santiago\source\repos\Specter_System\Specter_System.Validations\obj\Debug\Specter_System.Validations.Properties.Resources.resources
+C:\Users\Fabio Santiago\source\repos\Specter_System\Specter_System.Validations\obj\Debug\Specter_System.Validations.csproj.GenerateResource.cache
+C:\Users\Fabio Santiago\source\repos\Specter_System\Specter_System.Validations\obj\Debug\Specter_System.Validations.csproj.CoreCompileInputs.cache
+C:\Users\Fabio Santiago\source\repos\Specter_System\Specter_System.Validations\bin\Debug\Specter_System.Validations.exe.config
+C:\Users\Fabio Santiago\source\repos\Specter_System\Specter_System.Validations\bin\Debug\Specter_System.Validations.exe
+C:\Users\Fabio Santiago\source\repos\Specter_System\Specter_System.Validations\bin\Debug\Specter_System.Validations.pdb
+C:\Users\Fabio Santiago\source\repos\Specter_System\Specter_System.Validations\obj\Debug\Specter_System.Validations.exe
+C:\Users\Fabio Santiago\source\repos\Specter_System\Specter_System.Validations\obj\Debug\Specter_System.Validations.pdb

@@ -6,14 +6,29 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Fabio Santiago\Desktop\SistemaExpertNutri</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Fabio Santiago\Desktop\Somee</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="App_Browsers/qt.browser">
+      <publishTime>02/10/2021 10:47:19</publishTime>
+    </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.pdb">
       <publishTime>09/10/2013 16:29:20</publishTime>
+    </File>
+    <File Include="bin/Catharsis.Commons.dll">
+      <publishTime>07/23/2014 10:27:40</publishTime>
+    </File>
+    <File Include="bin/Catharsis.Commons.pdb">
+      <publishTime>07/23/2014 10:27:40</publishTime>
+    </File>
+    <File Include="bin/Catharsis.Web.Widgets.dll">
+      <publishTime>02/18/2015 18:41:32</publishTime>
+    </File>
+    <File Include="bin/Catharsis.Web.Widgets.pdb">
+      <publishTime>02/18/2015 18:41:32</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 13:38:22</publishTime>
@@ -26,6 +41,12 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>02/18/2018 09:44:54</publishTime>
+    </File>
+    <File Include="bin/PagedList.dll">
+      <publishTime>09/30/2013 17:36:38</publishTime>
+    </File>
+    <File Include="bin/PagedList.Mvc.dll">
+      <publishTime>09/30/2013 18:15:20</publishTime>
     </File>
     <File Include="bin/pt-br/System.Web.Helpers.resources.dll">
       <publishTime>11/28/2018 13:04:44</publishTime>
@@ -186,11 +207,23 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
       <publishTime>05/24/2018 13:38:24</publishTime>
     </File>
+    <File Include="bin/Rotativa.dll">
+      <publishTime>09/29/2017 14:13:30</publishTime>
+    </File>
     <File Include="bin/Specter_System.dll">
-      <publishTime>12/23/2020 16:37:00</publishTime>
+      <publishTime>03/03/2021 19:55:21</publishTime>
     </File>
     <File Include="bin/Specter_System.pdb">
-      <publishTime>12/23/2020 16:37:00</publishTime>
+      <publishTime>03/03/2021 19:55:21</publishTime>
+    </File>
+    <File Include="bin/Specter_System.Validations.exe">
+      <publishTime>03/03/2021 13:27:54</publishTime>
+    </File>
+    <File Include="bin/Specter_System.Validations.exe.config">
+      <publishTime>02/12/2021 20:09:01</publishTime>
+    </File>
+    <File Include="bin/Specter_System.Validations.pdb">
+      <publishTime>03/03/2021 13:27:54</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>11/28/2018 14:04:24</publishTime>
@@ -216,38 +249,41 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 14:57:34</publishTime>
     </File>
+    <File Include="Certificados/Teste.docx">
+      <publishTime>02/11/2021 11:43:19</publishTime>
+    </File>
     <File Include="Content/bootstrap-grid.css">
-      <publishTime>12/03/2020 11:09:43</publishTime>
+      <publishTime>02/17/2021 16:53:08</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.css.map">
-      <publishTime>12/03/2020 11:09:43</publishTime>
+      <publishTime>02/17/2021 16:53:08</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.min.css">
-      <publishTime>12/03/2020 11:09:43</publishTime>
+      <publishTime>02/17/2021 16:53:08</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.min.css.map">
-      <publishTime>12/03/2020 11:09:43</publishTime>
+      <publishTime>02/17/2021 16:53:07</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.css">
-      <publishTime>12/03/2020 11:09:42</publishTime>
+      <publishTime>02/17/2021 16:53:07</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.css.map">
-      <publishTime>12/03/2020 11:09:42</publishTime>
+      <publishTime>02/17/2021 16:53:06</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.min.css">
-      <publishTime>12/03/2020 11:09:42</publishTime>
+      <publishTime>02/17/2021 16:53:06</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.min.css.map">
-      <publishTime>12/03/2020 11:09:42</publishTime>
+      <publishTime>02/17/2021 16:53:06</publishTime>
     </File>
     <File Include="Content/bootstrap.bundle.js.map">
       <publishTime>12/02/2020 17:53:38</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>12/03/2020 11:09:42</publishTime>
+      <publishTime>02/17/2021 16:53:05</publishTime>
     </File>
     <File Include="Content/bootstrap.css.map">
-      <publishTime>12/03/2020 11:09:42</publishTime>
+      <publishTime>02/17/2021 16:53:05</publishTime>
     </File>
     <File Include="Content/bootstrap.js">
       <publishTime>12/02/2020 17:53:38</publishTime>
@@ -256,31 +292,175 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>12/02/2020 17:53:38</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>12/03/2020 11:09:42</publishTime>
+      <publishTime>02/17/2021 16:53:05</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css.map">
-      <publishTime>12/03/2020 11:09:42</publishTime>
+      <publishTime>02/17/2021 16:53:05</publishTime>
     </File>
     <File Include="Content/bootstrap.min.js">
       <publishTime>12/02/2020 17:55:45</publishTime>
+    </File>
+    <File Include="Content/CssAreaAluno/styleAreaAluno.css">
+      <publishTime>02/12/2021 09:54:59</publishTime>
+    </File>
+    <File Include="Content/cssMedia/AreaAluno/mediaAreaAluno.css">
+      <publishTime>02/27/2021 12:48:40</publishTime>
+    </File>
+    <File Include="Content/cssMedia/Home/mediaCadastroPessoa.css">
+      <publishTime>01/14/2021 10:38:07</publishTime>
+    </File>
+    <File Include="Content/cssMedia/Home/mediaHomeResponsivo.css">
+      <publishTime>01/14/2021 14:58:58</publishTime>
+    </File>
+    <File Include="Content/cssMedia/Home/mediaLogin.css">
+      <publishTime>01/05/2021 22:19:20</publishTime>
+    </File>
+    <File Include="Content/cssMedia/Home/mediaSobreEmpresa.css">
+      <publishTime>01/05/2021 21:49:28</publishTime>
+    </File>
+    <File Include="Content/cssMedia/mediaProdutosIndex.css">
+      <publishTime>01/05/2021 21:32:56</publishTime>
+    </File>
+    <File Include="Content/PagedList.css">
+      <publishTime>02/10/2021 10:47:49</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>12/02/2020 08:32:25</publishTime>
     </File>
     <File Include="Content/styleAdministrativo.css">
-      <publishTime>12/02/2020 20:21:20</publishTime>
+      <publishTime>12/29/2020 21:16:45</publishTime>
     </File>
     <File Include="Content/styleAreaAluno.css">
       <publishTime>12/02/2020 09:43:33</publishTime>
     </File>
     <File Include="Content/styleHome.css">
-      <publishTime>12/04/2020 15:21:24</publishTime>
+      <publishTime>01/12/2021 21:22:06</publishTime>
+    </File>
+    <File Include="Content/styleResponsivo.css">
+      <publishTime>01/05/2021 09:50:00</publishTime>
+    </File>
+    <File Include="Content/StyleTeste.css">
+      <publishTime>02/16/2021 17:36:09</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>12/02/2020 08:32:25</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>12/02/2020 08:32:25</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/.gitignore">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/.jshintrc">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/.ruby-version">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/.travis.yml">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/bower.json">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/CHANGELOG.md">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/component.json">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/composer.json">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/CONTRIBUTING.md">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/deploy.rb">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/dist/jquery.mask.js">
+      <publishTime>12/31/2020 15:53:26</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/dist/jquery.mask.min.js">
+      <publishTime>12/31/2020 15:53:26</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/docker-compose.yml">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/Dockerfile">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/Gruntfile.js">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/ISSUE_TEMPLATE.md">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/LICENSE">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/package-lock.json">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/package.js">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/package.json">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/README.md">
+      <publishTime>12/31/2020 15:56:06</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/src/jquery.mask.js">
+      <publishTime>12/31/2020 15:54:00</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/jquery.mask.test.js">
+      <publishTime>12/31/2020 15:54:57</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/qunit.css">
+      <publishTime>12/31/2020 15:54:57</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/qunit.js">
+      <publishTime>12/31/2020 15:54:57</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/sinon-1.10.3.js">
+      <publishTime>12/31/2020 15:54:57</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/sinon-qunit-1.0.0.js">
+      <publishTime>12/31/2020 15:54:57</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/sinon-qunit.js">
+      <publishTime>12/31/2020 15:54:57</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/test-for-jquery-1.11.1.html">
+      <publishTime>12/31/2020 15:54:57</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/test-for-jquery-1.7.2.html">
+      <publishTime>12/31/2020 15:54:57</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/test-for-jquery-1.8.3.html">
+      <publishTime>12/31/2020 15:54:57</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/test-for-jquery-1.9.1.html">
+      <publishTime>12/31/2020 15:54:57</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/test-for-jquery-2.1.1.html">
+      <publishTime>12/31/2020 15:54:57</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/test-for-jquery-3.0.0.html">
+      <publishTime>12/31/2020 15:54:57</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/test-for-zepto.html">
+      <publishTime>12/31/2020 15:54:57</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/zepto/data.js">
+      <publishTime>12/31/2020 15:55:11</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/zepto/event.js">
+      <publishTime>12/31/2020 15:55:11</publishTime>
+    </File>
+    <File Include="Lib/jQuery-Mask-Plugin-master/test/zepto/zepto.min.js">
+      <publishTime>12/31/2020 15:55:11</publishTime>
     </File>
     <File Include="Models/imagens/icones/Boneco Login%281%29.png">
       <publishTime>07/29/2020 21:48:32</publishTime>
@@ -312,29 +492,41 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     <File Include="Models/imagens/icones/logoMarca.png">
       <publishTime>07/29/2020 21:48:32</publishTime>
     </File>
+    <File Include="Rotativa/help-wkhtmltoimage.txt">
+      <publishTime>02/10/2021 10:47:19</publishTime>
+    </File>
+    <File Include="Rotativa/help-wkhtmltopdf.txt">
+      <publishTime>02/10/2021 10:47:19</publishTime>
+    </File>
+    <File Include="Rotativa/wkhtmltoimage.exe">
+      <publishTime>02/10/2021 10:47:19</publishTime>
+    </File>
+    <File Include="Rotativa/wkhtmltopdf.exe">
+      <publishTime>02/10/2021 10:47:18</publishTime>
+    </File>
     <File Include="Scripts/bootstrap.bundle.js">
-      <publishTime>12/03/2020 11:09:42</publishTime>
+      <publishTime>02/17/2021 16:53:04</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js.map">
-      <publishTime>12/03/2020 11:09:42</publishTime>
+      <publishTime>02/17/2021 16:53:04</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.min.js">
-      <publishTime>12/03/2020 11:09:42</publishTime>
+      <publishTime>02/17/2021 16:53:04</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.min.js.map">
-      <publishTime>12/03/2020 11:09:42</publishTime>
+      <publishTime>02/17/2021 16:53:03</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>12/03/2020 11:09:32</publishTime>
+      <publishTime>02/17/2021 16:53:03</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js.map">
-      <publishTime>12/03/2020 11:09:32</publishTime>
+      <publishTime>02/17/2021 16:53:02</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
-      <publishTime>12/03/2020 11:09:32</publishTime>
+      <publishTime>02/17/2021 16:53:02</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js.map">
-      <publishTime>12/03/2020 11:09:31</publishTime>
+      <publishTime>02/17/2021 16:53:02</publishTime>
     </File>
     <File Include="Scripts/esm/popper-utils.js">
       <publishTime>12/03/2020 11:09:31</publishTime>
@@ -360,8 +552,26 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     <File Include="Scripts/esm/popper.min.js.map">
       <publishTime>12/03/2020 11:09:30</publishTime>
     </File>
+    <File Include="Scripts/Funcoes/AreaAdministrativa.js">
+      <publishTime>02/18/2021 11:19:15</publishTime>
+    </File>
     <File Include="Scripts/index.js.flow">
       <publishTime>12/03/2020 11:09:30</publishTime>
+    </File>
+    <File Include="Scripts/inputmask/bindings/inputmask.binding.js">
+      <publishTime>12/29/2020 09:05:48</publishTime>
+    </File>
+    <File Include="Scripts/inputmask/inputmask.js">
+      <publishTime>12/29/2020 09:05:48</publishTime>
+    </File>
+    <File Include="Scripts/inputmask/inputmask.min.js">
+      <publishTime>12/29/2020 09:05:48</publishTime>
+    </File>
+    <File Include="Scripts/inputmask/jquery.inputmask.js">
+      <publishTime>12/29/2020 09:05:48</publishTime>
+    </File>
+    <File Include="Scripts/inputmask/jquery.inputmask.min.js">
+      <publishTime>12/29/2020 09:05:48</publishTime>
     </File>
     <File Include="Scripts/jquery-3.3.1.js">
       <publishTime>12/02/2020 08:32:35</publishTime>
@@ -380,6 +590,12 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     </File>
     <File Include="Scripts/jquery-3.3.1.slim.min.map">
       <publishTime>12/02/2020 08:32:35</publishTime>
+    </File>
+    <File Include="Scripts/jquery.maskedinput.js">
+      <publishTime>12/29/2020 09:12:43</publishTime>
+    </File>
+    <File Include="Scripts/jquery.maskedinput.min.js">
+      <publishTime>12/29/2020 09:12:43</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
       <publishTime>12/02/2020 08:32:42</publishTime>
@@ -424,7 +640,13 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>12/03/2020 11:09:29</publishTime>
     </File>
     <File Include="Scripts/ScriptInscricao.js">
-      <publishTime>12/22/2020 12:09:49</publishTime>
+      <publishTime>01/13/2021 15:59:54</publishTime>
+    </File>
+    <File Include="Scripts/ScriptProduto.js">
+      <publishTime>03/03/2021 16:44:21</publishTime>
+    </File>
+    <File Include="Scripts/ScriptsMensagens.js">
+      <publishTime>03/03/2021 12:59:38</publishTime>
     </File>
     <File Include="Scripts/src/index.js">
       <publishTime>12/03/2020 11:09:29</publishTime>
@@ -642,6 +864,24 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     <File Include="Scripts/umd/popper.min.js.map">
       <publishTime>12/03/2020 11:09:22</publishTime>
     </File>
+    <File Include="Scripts/Validacoes.js">
+      <publishTime>01/03/2021 13:16:29</publishTime>
+    </File>
+    <File Include="Scripts/WebWidgets/cackle.js">
+      <publishTime>02/15/2021 20:17:41</publishTime>
+    </File>
+    <File Include="Scripts/WebWidgets/disqus.js">
+      <publishTime>02/15/2021 20:17:40</publishTime>
+    </File>
+    <File Include="Scripts/WebWidgets/google_analytics.js">
+      <publishTime>02/15/2021 20:17:40</publishTime>
+    </File>
+    <File Include="Scripts/WebWidgets/google_plusone.js">
+      <publishTime>02/15/2021 20:17:40</publishTime>
+    </File>
+    <File Include="Scripts/WebWidgets/twitter_initialize.js">
+      <publishTime>02/15/2021 20:17:39</publishTime>
+    </File>
     <File Include="Views/AreaAdministrativa/Index.cshtml">
       <publishTime>12/03/2020 13:51:54</publishTime>
     </File>
@@ -649,70 +889,118 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>12/14/2020 11:30:35</publishTime>
     </File>
     <File Include="Views/AreaAluno/CarrinhoCompra.cshtml">
-      <publishTime>12/11/2020 16:11:34</publishTime>
+      <publishTime>01/13/2021 09:21:12</publishTime>
     </File>
     <File Include="Views/AreaAluno/ConsultarPagamento.cshtml">
       <publishTime>12/18/2020 20:48:30</publishTime>
     </File>
+    <File Include="Views/AreaAluno/CursosOnline.cshtml">
+      <publishTime>03/01/2021 14:11:19</publishTime>
+    </File>
+    <File Include="Views/AreaAluno/EmitirCertificado.cshtml">
+      <publishTime>02/12/2021 21:20:50</publishTime>
+    </File>
+    <File Include="Views/AreaAluno/ExibirCertificados.cshtml">
+      <publishTime>02/17/2021 21:52:28</publishTime>
+    </File>
+    <File Include="Views/AreaAluno/ExibirCursosOnlines.cshtml">
+      <publishTime>03/02/2021 15:47:27</publishTime>
+    </File>
     <File Include="Views/AreaAluno/Index.cshtml">
-      <publishTime>12/02/2020 14:34:08</publishTime>
+      <publishTime>02/27/2021 12:40:33</publishTime>
     </File>
     <File Include="Views/AreaAluno/Inscricao.cshtml">
-      <publishTime>12/22/2020 12:11:55</publishTime>
+      <publishTime>02/08/2021 15:49:39</publishTime>
+    </File>
+    <File Include="Views/AreaAluno/IntegrarGrupo.cshtml">
+      <publishTime>02/17/2021 20:56:57</publishTime>
     </File>
     <File Include="Views/AreaAluno/PagSeguro.cshtml">
       <publishTime>12/15/2020 17:59:06</publishTime>
     </File>
+    <File Include="Views/AreaAluno/Video.cshtml">
+      <publishTime>02/17/2021 16:59:50</publishTime>
+    </File>
     <File Include="Views/ControleProdutos/Create.cshtml">
-      <publishTime>12/05/2020 12:00:27</publishTime>
+      <publishTime>01/03/2021 13:57:47</publishTime>
+    </File>
+    <File Include="Views/ControleProdutos/CreateProdutoOnline.cshtml">
+      <publishTime>03/03/2021 16:36:30</publishTime>
+    </File>
+    <File Include="Views/ControleProdutos/CreateProdutoPresencial.cshtml">
+      <publishTime>02/18/2021 11:18:49</publishTime>
+    </File>
+    <File Include="Views/ControleProdutos/Deletar.cshtml">
+      <publishTime>12/29/2020 21:29:19</publishTime>
+    </File>
+    <File Include="Views/ControleProdutos/Editar.cshtml">
+      <publishTime>02/27/2021 14:11:14</publishTime>
     </File>
     <File Include="Views/ControleProdutos/Index.cshtml">
-      <publishTime>12/05/2020 12:49:18</publishTime>
+      <publishTime>02/18/2021 10:49:09</publishTime>
     </File>
     <File Include="Views/ControleProdutos/Pesquisar.cshtml">
-      <publishTime>12/05/2020 12:46:19</publishTime>
+      <publishTime>02/27/2021 13:55:06</publishTime>
+    </File>
+    <File Include="Views/CursosOnline/Index.cshtml">
+      <publishTime>01/13/2021 21:31:41</publishTime>
+    </File>
+    <File Include="Views/CursosOnline/Sobre.cshtml">
+      <publishTime>01/13/2021 21:33:22</publishTime>
     </File>
     <File Include="Views/CursosPresenciais/EfetuarCompra.cshtml">
       <publishTime>12/02/2020 14:02:16</publishTime>
     </File>
     <File Include="Views/CursosPresenciais/Index.cshtml">
-      <publishTime>12/22/2020 09:10:08</publishTime>
+      <publishTime>02/12/2021 09:11:57</publishTime>
     </File>
     <File Include="Views/CursosPresenciais/Sobre.cshtml">
-      <publishTime>12/02/2020 13:59:58</publishTime>
+      <publishTime>02/09/2021 17:54:49</publishTime>
+    </File>
+    <File Include="Views/Home/AlterarSenha.cshtml">
+      <publishTime>02/10/2021 09:47:19</publishTime>
     </File>
     <File Include="Views/Home/CadastrarPessoa.cshtml">
-      <publishTime>12/22/2020 17:31:37</publishTime>
+      <publishTime>01/06/2021 21:22:33</publishTime>
     </File>
     <File Include="Views/Home/CadastrarUsuario.cshtml">
-      <publishTime>12/04/2020 14:37:48</publishTime>
+      <publishTime>01/13/2021 16:13:36</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/06/2020 13:11:54</publishTime>
+      <publishTime>01/05/2021 21:50:35</publishTime>
     </File>
     <File Include="Views/Home/Login.cshtml">
-      <publishTime>12/11/2020 09:58:31</publishTime>
+      <publishTime>03/03/2021 13:17:05</publishTime>
+    </File>
+    <File Include="Views/Home/RecuperarEmail.cshtml">
+      <publishTime>01/12/2021 21:23:57</publishTime>
+    </File>
+    <File Include="Views/Home/RecuperarSenha.cshtml">
+      <publishTime>02/10/2021 09:44:20</publishTime>
     </File>
     <File Include="Views/Home/Sobre.cshtml">
       <publishTime>12/04/2020 14:31:58</publishTime>
     </File>
     <File Include="Views/Home/SobreEmpresa.cshtml">
-      <publishTime>12/22/2020 17:21:11</publishTime>
+      <publishTime>01/05/2021 21:49:06</publishTime>
+    </File>
+    <File Include="Views/Home/TesteSenha.cshtml">
+      <publishTime>02/09/2021 10:34:33</publishTime>
     </File>
     <File Include="Views/Inscricao/Index.cshtml">
-      <publishTime>12/09/2020 22:05:41</publishTime>
+      <publishTime>01/09/2021 21:44:52</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>12/02/2020 08:32:25</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>12/22/2020 17:13:37</publishTime>
+      <publishTime>01/05/2021 21:50:54</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutAdministrativo.cshtml">
       <publishTime>12/05/2020 12:14:51</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutAreaAluno.cshtml">
-      <publishTime>12/18/2020 16:05:50</publishTime>
+      <publishTime>02/27/2021 12:17:59</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>12/02/2020 08:32:25</publishTime>
@@ -721,7 +1009,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>12/02/2020 08:33:48</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/15/2020 21:44:31</publishTime>
+      <publishTime>03/02/2021 18:40:10</publishTime>
     </File>
   </ItemGroup>
 </Project>

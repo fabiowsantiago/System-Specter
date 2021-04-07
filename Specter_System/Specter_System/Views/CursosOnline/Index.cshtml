@@ -1,0 +1,35 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @*<link href="~/Content/styleHome.css" rel="stylesheet" />*@
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/Content/Css Produtos Online/style.css" rel="stylesheet" />
+</head>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @model List<Specter_System.Models.Entitys.Produto>
+
+    <h2>Cursos Onlines</h2>
+    <hr />
+    <section class="flex">
+
+        @foreach (var item in Model)
+        {
+            <div>
+                <img src="@Html.DisplayFor(model=>item.image.CaminhoCurso)" />
+                <p>
+                    <b>@Html.DisplayFor(model => item.Nome)</b><br />
+                    <b>Carga Horaria: </b>@Html.DisplayFor(model => item.Carga_Horaria)
+                    <div>
+                        @Html.ActionLink("Saiba Mais", "Sobre", new { nome = item.Nome })
+                    </div>
+                </p>
+            </div>
+        }
+
+    </section>
+}

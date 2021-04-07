@@ -1,0 +1,62 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/cssMedia/Home/mediaHomeResponsivo.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+@{
+    ViewBag.Title = "Sobre";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="padding-top: 10%">
+
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        @model Specter_System.Models.Entitys.Produto
+
+        <div class="container-fluid sobreProduto">
+            <div>
+                @Html.HiddenFor(model => model.Nome)
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <figure>
+                        <img src="@Html.DisplayFor(model=>model.image.CaminhoCurso)" class=" imagemProdutoSobre" style="height: 200px; width:300px" />
+                    </figure>
+                </div>
+                
+                <div class="col-sm-2" style="padding-top: 5%">
+                    <input type="submit" name="action:CarrinhoCompra" class="btn btn-primary" value="ADICIONAR AO CARRINHO" style=" background-color: #002060;" />
+                </div>
+            </div>
+            <div class="row" style="padding-top: 1%">
+                <div class="col-sm-3 text-justify">
+                    <h3>Sobre o Curso</h3>
+                    @Html.DisplayTextFor(model => model.Sobre)
+                </div>
+                <div class="col-sm-5" style="padding-left: 4%">
+                    <h3>Informações</h3>
+                    @Html.DisplayTextFor(model => model.Informacoes)
+                    <div>
+                        <b>Carga Horária:</b> @Html.DisplayFor(model => model.Carga_Horaria)
+                    </div>
+                    <div>
+                        <b>Investimento:</b> R$ @Html.DisplayFor(model => model.Valor)
+                    </div>
+                    <div style="padding-top: 4%">
+                        <h4>Conteúdos do curso</h4>
+                        <hr />
+                        @foreach (var modulo in Model.Modulos)
+                        {
+                            <ul>
+                                <li>@Html.DisplayFor(model => modulo.Nome)</li>
+                            </ul>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+</div>

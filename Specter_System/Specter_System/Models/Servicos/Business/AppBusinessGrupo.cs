@@ -15,37 +15,7 @@ namespace Specter_System.Models.Servicos.Business
             bool respNome = this.appGrupo.PesquisarGrupo(model);
             string resposta = string.Empty;
 
-            Produto curso = this.appCurso.Pesqusiar_Quantidade_Vagas(model.Produto);
-
-            if (model.QtdComponentes < (curso.QuantidadeDeVagas - curso.QtdVendidos))
-            {
-                if (respNome == true)
-                {
-                    return resposta = "Já existe um grupo com este nome";
-                }
-
-                else
-                {
-                    bool respCadastro = this.appGrupo.Cadastrar(model);
-
-                    if (respCadastro == true)
-                    {
-                        return resposta = "Grupo criado com sucesso";
-                    }
-
-                    else
-                    {
-                        return resposta = "Erro ao realizar cadastro";
-                    }
-
-                }
-            }
-            else
-            {
-                var quantidade = curso.QuantidadeDeVagas - curso.QtdVendidos;
-
-                return resposta = $"Vagas disponiveis {quantidade}";
-            }
+            return resposta;
 
         }
 

@@ -18,7 +18,7 @@ namespace Specter_System.Models.Dados.Classes
             SqlCommand command = new SqlCommand("Insert_Grupo", this.OpenConnection());
             command.CommandType = System.Data.CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("pedido_cod", codCurso);
+            command.Parameters.AddWithValue("produto_cod", codCurso);
             command.Parameters.AddWithValue("pessoas_cod", codPessoa);
             command.Parameters.AddWithValue("nome", model.Nome);
             command.Parameters.AddWithValue("senha", model.Senha);
@@ -45,7 +45,7 @@ namespace Specter_System.Models.Dados.Classes
         {
             bool resp = false;
             SqlCommand command = new SqlCommand("Select_Name_Group", this.OpenConnection());
-            command.CommandText = "SELECT nome FROM grupo WHERE nome = @nome";
+            command.CommandText = "SELECT nome FROM grupos WHERE nome = @nome";
             
             command.Parameters.AddWithValue("nome", model.Nome);
 
@@ -181,7 +181,7 @@ namespace Specter_System.Models.Dados.Classes
         {
             int cod = 0;
             SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT cod FROM pessoa WHERE nome = @nome";
+            command.CommandText = "SELECT cod FROM pessoas WHERE nome = @nome";
 
             command.Parameters.AddWithValue("@nome", nome);
 
@@ -212,7 +212,7 @@ namespace Specter_System.Models.Dados.Classes
         {
             int cod = 0;
             SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT cod FROM curso WHERE nome = @nome";
+            command.CommandText = "SELECT cod FROM produtos WHERE nome = @nome";
 
             command.Parameters.AddWithValue("@nome", model.Nome);
 

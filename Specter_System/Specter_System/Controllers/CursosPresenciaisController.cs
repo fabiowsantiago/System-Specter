@@ -1,9 +1,7 @@
 ﻿using Specter_System.Models.Entitys;
 using Specter_System.Models.Servicos.Business;
 using Specter_System.Models.Servicos.Infaces;
-using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Web.Mvc;
 
 namespace Specter_System.Controllers
@@ -36,9 +34,13 @@ namespace Specter_System.Controllers
             return View(curso);
         }
 
-        public ActionResult ExibirCurriculo()
+        [HttpPost]
+        [MultipleButton(Name = "action", Argument="ExibirCurriculo")]
+        public ActionResult ExibirCurriculo(Produto model)
         {
-            return View();
+            string link = this.appProduto.Pesquisar_Link(model);
+
+            return Redirect(link);
         }
 
         [HttpPost]
@@ -59,8 +61,7 @@ namespace Specter_System.Controllers
             };
 
             this.Session["sessionProduto"] = produto;
-
-            //Session["valorTotalCurso"] = model.Valor * 100;
+            Session["sessionValorProduto"] = model.Valor; //Criado a Session para calcular o valor do Produto para inserir no BANCO
 
             return RedirectToAction("../Home/Login");
         }

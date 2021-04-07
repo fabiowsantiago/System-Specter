@@ -1,0 +1,57 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/styleHome.css" rel="stylesheet" />
+
+    <script src="~/Scripts/Validacoes.js"></script>
+    <script src="~/Scripts/ScriptsMensagens.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+</head>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Specter_System.Models.Entitys.Usuario
+
+<div>
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+    <div class="container recuperarEmail">
+        <h3>RECUPERAR EMAIL</h3>
+        <hr />
+        <div class="form-horizontal formRecuperarEmail">
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3">NOME COMPLETO</label>
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(model => model.Pessoa, new { @class = "form-control", @placeholder = "Informe seu nome completo", @required = "required" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3">INFORME SEU CPF</label>
+                <div class="col-sm-3">
+                    @Html.TextBoxFor(model => model.CpfPessoa, new
+                    {
+                                                                      @class = "form-control",
+                                                                      @required = "required",
+                                                                      id = "cpf",
+                                                                      @onkeydown = "javascript: fMasc( this, mCPF )",
+                                                                      @Onblur = "javascript: ValidarCpf(this)",
+                                                                      @placeholder = "000.000.000-00"
+                                                                    })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3">EMAIL DE CONTA</label>
+                <div class="col-sm-8">
+                    @Html.DisplayFor(model=>model.Email)
+                </div>
+            </div>
+            <div class="form-group row justify-content-center" style="padding-top: 3%">
+                <button type="submit" class="btn btn-success" name="action:RecuperarEmail">RECUPERAR</button>
+            </div>
+        </div>
+    </div>
+     }
+</div>

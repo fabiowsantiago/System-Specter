@@ -1,6 +1,8 @@
 ﻿<head>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/styleAdministrativo.css" rel="stylesheet" />
+
+    <script src="~/Scripts/Funcoes/AreaAdministrativa.js"></script>
 </head>
 
 @{
@@ -27,9 +29,9 @@
                     </span>
                 </div>
             </div>
-
             <div class="col-md-2">
-                @Html.ActionLink("Novo Item", "Create", null, new { @class = "btn btn-primary" })
+                <button class="btn btn-primary" onclick="CriarNovoCurso()">Novo Item</button>
+                @*@Html.ActionLink("Novo Item", "Create", null, new { @class = "btn btn-primary" })*@
             </div>
         </div>
 

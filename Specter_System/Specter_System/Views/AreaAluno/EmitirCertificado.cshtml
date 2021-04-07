@@ -1,0 +1,46 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/CssAreaAluno/styleAreaAluno.css" rel="stylesheet" />
+</head>
+
+@{
+    ViewBag.Title = "EmitirCertificados";
+    Layout = "~/Views/Shared/_LayoutAreaAluno.cshtml";
+}
+
+@model Specter_System.Models.Entitys.Certificado
+
+<div class="container" style="padding-top: 10%; padding-left: 15%">
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        <div class="form-group row" style="padding-top: 2%">
+            <label class="col-sm-2 col-form-label">Curso</label>
+            <div class="col-sm-5">
+                @Html.TextBoxFor(model => model.Curso, new { @class = "form-control", @readonly = "true" })
+            </div>
+        </div>
+        <div class="form-group row" style="padding-top: 2%">
+            <label class="col-sm-2 col-form-label">Data</label>
+            <div class="col-sm-5">
+                @Html.TextBoxFor(model => model.Data, new { @class = "form-control", @readonly = "true" })
+            </div>
+        </div>
+        <div class="form-group row" style="padding-top: 2%">
+            <label class="col-sm-2 col-form-label">Carga Horária</label>
+            <div class="col-sm-5">
+                @Html.TextBoxFor(model => model.CargaHoraria, new { @class = "form-control", @readonly = "true" })
+            </div>
+        </div>
+        <div class="form-group row" style="padding-top: 2%">
+            <label class="col-sm-2 col-form-label">Palestrante</label>
+            <div class="col-sm-5">
+                @Html.TextBoxFor(model => model.Palestrante, new { @class = "form-control", @readonly = "true" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4"></label>
+            <button name="action:ImprimirCertificado" class="btn btn-primary">IMPRIMIR</button>
+        </div>
+    }
+</div>
+

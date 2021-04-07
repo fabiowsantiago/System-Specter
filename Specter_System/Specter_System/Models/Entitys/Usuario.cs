@@ -14,5 +14,9 @@ namespace Specter_System.Models.Entitys
         public string Perfil { get; set; }
         public string Resposta { get; set; }
         public string Pessoa { get; set; }
+        public bool Status { get; set; }
+        public int codSenha { get; set; }
+
+       
     }
 }

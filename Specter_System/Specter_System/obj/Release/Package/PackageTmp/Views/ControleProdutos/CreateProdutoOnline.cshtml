@@ -1,0 +1,64 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/styleAdministrativo.css" rel="stylesheet" />
+
+    <script src="~/Scripts/ScriptProduto.js"></script>
+</head>
+
+@{
+    ViewBag.Title = "CreateProdutoOnline";
+    Layout = "~/Views/Shared/_LayoutAdministrativo.cshtml";
+}
+
+@model Specter_System.Models.Entitys.Produto
+
+<div class="container" style="padding-top: 3%">
+    <h2>Cadastrar Cursos Online</h2>
+
+    @using (Html.BeginForm("", "ControleProdutos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+     {
+        <div style = "padding-top: 2%; position:center" >
+             <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Curso</label>
+                <div class="col-sm-5">
+                    <input type="text" id="Nome" name="Nome" class="form-control" placeholder="Digite o nome do curso" required/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Carga Horária</label>
+                <div class="col-sm-4">
+                    <input type="text" id="Carga_Horaria" name="Carga_Horaria" class="form-control" placeholder="Informe a carga horária" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Valor do Curso</label>
+                <div class="col-sm-4">
+                    <input type="text" id="Valor" name="Valor" class="form-control" placeholder="Informe o valor do Curso" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Quantidade de módulos</label>
+                <div class="col-sm-4">
+                    <input type="text" id="QtdModulos" name="QtdModulos" class="form-control" placeholder="Informe a carga horária" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <input type="file" id="Videos" name="Videos" multiple />
+        </div>
+        <div class="form-group row" style="padding-top: 3%">
+            <label class="col-sm-3"></label>
+            <div class="col-sm-3">
+                <button class="btn btn-success" name="action:CreateProdutoOnline">SALVAR</button>
+            </div>
+        </div>
+
+        if (ViewBag.Message != null)
+        {
+            <script type="text/javascript">
+                CreateProdutoOnline("@ViewBag.Message");
+            </script>
+        }
+    }
+
+</div>

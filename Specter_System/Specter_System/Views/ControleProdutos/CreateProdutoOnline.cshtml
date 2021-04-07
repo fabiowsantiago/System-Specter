@@ -1,0 +1,112 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/styleAdministrativo.css" rel="stylesheet" />
+
+    <script src="~/Scripts/ScriptProdutosOnline.js"></script>
+</head>
+
+@{
+    ViewBag.Title = "CreateProdutoOnline";
+    Layout = "~/Views/Shared/_LayoutAdministrativo.cshtml";
+}
+
+@model Specter_System.Models.Entitys.Produto
+
+<div class="container" style="padding-top: 3%">
+    <h2>Cadastrar Cursos Online</h2>
+
+    @using (Html.BeginForm("", "ControleProdutos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div style="padding-top: 2%; position:center">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Curso</label>
+                <div class="col-sm-5">
+                    <input type="text" id="Nome" name="Nome" class="form-control" placeholder="Digite o nome do curso" required />
+                </div>
+            </div>
+            <div id="divFormulario" style="display: inline">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Carga Horária</label>
+                    <div class="col-sm-5">
+                        <input type="text" id="Carga_Horaria" name="Carga_Horaria" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Valor do Curso</label>
+                    <div class="col-sm-5">
+                        <input type="text" id="Valor" name="Valor" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Videos</label>
+                    <div class="col-sm-4">
+                        <input type="file" class="form-control-file" id="Videos" name="Videos" multiple />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Imagem</label>
+                    <div class="col-sm-4">
+                        <input type="file" class="form-control-file" id="Imagem" name="Imagem" />
+                    </div>
+                </div>
+
+                <div class="form-group row" style="padding-top: 2%">
+                    <label class="col-sm-3"></label>
+                    <div class="col-sm-3">
+                        <input type="submit" class="btn btn-success" value="Salvar Curso" name="action:CreateProdutoOnline" />
+                        @*<input type="button" class="btn btn-success" onclick="SalvarCurso();" value="SALVAR CURSO"/>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br /><br />
+        <div id="tabelaModulo" style="padding-top: 18%; display: none;">
+            <h3 style="padding-left: 30%">Inserir Módulos</h3>
+            <div style="padding-top: 2%">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Módulo</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="NomeModulo" name="NomeModulo" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label"></label>
+                    <div class="col-sm-7">
+                        <input type="button" value="Inserir" class="btn btn-warning" onclick="InserirModulo();" />
+                        <input type="button" value="Alterar" class="btn btn-primary" onclick="AlterarModulo();" />
+                        <input type="button" value="Excluir" class="btn btn-danger" onclick="ExcluirModulo();" />
+                    </div>
+                </div>
+                <div class="form-group row" style="padding-top: 2%">
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-5">
+                        <table class="table table-striped" id="tableModulo">
+                            <thead>
+                                <tr>
+                                    <th scope="col">MÓDULOS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="Modulos" name="Modulos">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div style="padding-top: 1%" class="form-group row">
+                    <label class="col-sm-3 col-form-label"></label>
+                    <div class="col-sm-4">
+                        <input type="button" class="btn btn-secondary" value="Salvar Módulos" onclick="SalvarCurso()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        if (ViewBag.Message != null)
+        {
+            <script type="text/javascript">
+                ExibirMensagem("@ViewBag.Message");
+            </script>
+        }
+
+    }
+
+</div>

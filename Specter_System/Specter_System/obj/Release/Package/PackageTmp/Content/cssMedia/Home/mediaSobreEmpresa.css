@@ -1,0 +1,14 @@
+﻿
+@media (max-width: 640px)
+{
+    .sobreEmpresa{
+        padding-top: 50%;
+
+    }
+
+    h2{
+        font-size: 100%;
+        color: red;
+    }
+
+}

@@ -1,0 +1,37 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/CssAreaAluno/styleAreaAluno.css" rel="stylesheet" />
+</head>
+
+@{ 
+    Layout = "~/Views/Shared/_LayoutAreaAluno.cshtml";
+}
+
+@model Specter_System.Models.Entitys.Grupo
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div class="container" style="padding-left: 15%;padding-top: 11%">
+        <h2>Integrar Grupo</h2>
+        <hr style="border-color:black; border-style:solid; border-width: 1px 0" />
+
+        <div class="form-group row" style="padding-top: 1%">
+            <label class="col-sm-2 col-form-label">Nome Grupo</label>
+            <div class="col-sm-4">
+               @Html.DropDownList("nomeGrupo", (MultiSelectList)ViewBag.Grupo, "[Selecione]", new {@class="form-control sol-sm-3" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">SENHA</label>
+            <div class="col-sm-4">
+                @Html.TextBoxFor(model => model.Senha, new { @class="form-control",@placeholder="Digite a senha do grupo", @required="required"})
+            </div>
+        </div>
+        <div class="form-gorup row" style="padding-top: 2%">
+            <label class="col-sm-3"></label>
+            <div class="col-sm-4">
+                <button class="btn btn-success">ENTRAR</button>
+            </div>
+        </div>
+    </div>
+}

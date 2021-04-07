@@ -6,5 +6,9 @@ namespace Specter_System.Models.Servicos.Infaces
     {
         Usuario ValidarLogin(Usuario model);
         string Cadastrar_Usuario(Usuario model);
+        bool Enviar_Email(string emailDestinatario);
+        string RecuperarEmail(Usuario model);
+        bool SairLogin(Usuario model);
+        string AlterarSenha(Usuario model);
     }
 }

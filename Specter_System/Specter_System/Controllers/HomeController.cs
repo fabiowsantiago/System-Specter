@@ -1,6 +1,8 @@
 ﻿using Specter_System.Models.Entitys;
 using Specter_System.Models.Servicos.Business;
 using Specter_System.Models.Servicos.Infaces;
+using System;
+using System.Net.Mail;
 using System.Web.Mvc;
 
 namespace Specter_System.Controllers
@@ -9,6 +11,7 @@ namespace Specter_System.Controllers
     {
         private INUsuario appUsuario = new AppBusinessUsuario();
         private INPessoa appPessoa = new AppBusinessPessoa();
+        private string respCodSenha = string.Empty;
 
         public ActionResult Index()
         {
@@ -22,17 +25,28 @@ namespace Specter_System.Controllers
 
         public ActionResult Login()
         {
-            return View();
+            Usuario user = new Usuario();
+
+            return View(user);
         }
 
         [HttpPost]
         [MultipleButtonAttribute(Name = "action", Argument = "Login")]
         public ActionResult Login(Usuario model)
         {
+      
             Usuario user = this.appUsuario.ValidarLogin(model);
+            
 
             if (user == null)
-                ViewBag.Validacao = "Usuario ou senha inválido";
+                ViewBag.Validacao = "Usuario ou senha invalido";
+
+            else if (user.Status == true)
+            {
+                ViewBag.Validacao = "Usuario ja encontra-se em uso";
+
+            }
+
             else
             {
                 Session["usuarioLogado"] = user.Email;
@@ -69,7 +83,9 @@ namespace Specter_System.Controllers
 
         public ActionResult CadastrarPessoa()
         {
-            return View();
+            Pessoa pessoa = new Pessoa();
+
+            return View(pessoa);
         }
 
         [HttpPost]
@@ -148,5 +164,108 @@ namespace Specter_System.Controllers
             }
 
         }
+
+        public ViewResult RecuperarEmail()
+        {
+            Usuario usuario = new Usuario();
+
+            return View(usuario);
+        }
+
+        [HttpPost]
+        [MultipleButton(Name ="action",Argument ="RecuperarEmail")]
+        public ActionResult RecuperarEmail(Usuario model)
+        {
+            Usuario user = new Usuario()
+            {
+                Pessoa = model.Pessoa,
+                CpfPessoa = model.CpfPessoa,
+                Email = this.appUsuario.RecuperarEmail(model)
+            };
+
+            return View(user);
+        }
+
+        [HttpGet]
+        public ActionResult RecuperarSenha()
+        {
+            Usuario usuario = new Usuario();
+
+            ViewBag.Message = this.respCodSenha;
+
+            return View(usuario);
+        }
+
+        [HttpPost]
+        [MultipleButton(Name ="action", Argument ="RecuperarSenha")]
+        public ActionResult RecuperarSenha(Usuario model)
+        {
+            if(model.Senha == null && model.ConfirmarSenha == null) //Pesquisar se os dados estão cadastrados no banco
+            {
+                Random randNum = new Random();
+                string email = string.Empty;
+                bool respEmail = false;
+
+                Usuario user = new Usuario()
+                {
+                    Pessoa = model.Pessoa,
+                    CpfPessoa = model.CpfPessoa,
+                    codSenha = randNum.Next()
+                };
+
+                email = this.appUsuario.RecuperarEmail(user);
+
+                if (email != string.Empty)
+                {
+                    respEmail = this.appUsuario.Enviar_Email(email);
+
+                    if(respEmail == true)
+                    {
+                        ViewBag.Message = "Email enviado com sucesso";
+
+                        return RedirectToAction("AlterarSenha",new { cpf = model.CpfPessoa });
+                    }
+                       
+                }
+                else
+                    ViewBag.Message = "nao localizado";
+            }
+            else
+            {
+                ViewBag.Message = this.appUsuario.AlterarSenha(model);
+
+                if (ViewBag.Message.Equals(""))
+                    return RedirectToAction("Login");
+
+            }
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult AlterarSenha(string cpf)
+        {
+            Usuario user = new Usuario()
+            {
+                CpfPessoa = cpf
+            };
+
+            return View(user);
+        }
+
+        [HttpPost]
+        [MultipleButton(Name ="action", Argument ="AlterarSenha")]
+        public ActionResult AlterarSenha(Usuario model)
+        {
+            string resp = this.appUsuario.AlterarSenha(model);
+
+            if (resp.Equals("Senha alterada"))
+                return RedirectToAction("Login");
+            else
+                ViewBag.Message = resp;
+                
+            return View(model);
+        }
+      
     }
 }

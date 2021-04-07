@@ -1,6 +1,9 @@
 ﻿<head>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/styleHome.css" rel="stylesheet" />
+    <link href="~/Content/cssMedia/mediaProdutosIndex.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 </head>
 
 @{
@@ -11,13 +14,13 @@
 {
     @model List<Specter_System.Models.Entitys.Produto>
 
-    <div class="container-fluid" style="padding-top: 10%">
+    <div class="container-fluid" style="padding-top: 15%">
         <div class="row">
             @foreach (var curso in Model)
             {
-                <div class="col-xs-6 col-sm-4">
+                <div class="col-xs-6 col-sm-4 sobreProdutosIndex">
                     <figure>
-                        <img src="@Html.DisplayFor(model=>curso.image.CaminhoCurso)" style="width:255px; height: 300px" />
+                        <img src="@Html.DisplayFor(model=>curso.image.CaminhoCurso)"  />
                         <figcaption>
                             <b>@Html.DisplayFor(model => curso.Nome)</b><br />
                             <b>Modalidade:</b> @Html.DisplayFor(model => curso.Modalidade)<br />

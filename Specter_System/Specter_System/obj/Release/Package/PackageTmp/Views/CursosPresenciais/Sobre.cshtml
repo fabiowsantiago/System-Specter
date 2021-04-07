@@ -1,5 +1,7 @@
 ﻿<head>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/cssMedia/Home/mediaHomeResponsivo.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
 @{
@@ -13,14 +15,14 @@
     {
         @model Specter_System.Models.Entitys.Produto
 
-        <div class="container-fluid">
+        <div class="container-fluid sobreProduto">
             <div>
                 @Html.HiddenFor(model => model.Nome)
             </div>
             <div class="row">
                 <div class="col-sm-3">
                     <figure>
-                        <img src="@Html.DisplayFor(model=>model.image.CaminhoPalestrante)" class="rounded-circle" style="height: 150px; width:150px" />
+                        <img src="@Html.DisplayFor(model=>model.image.CaminhoPalestrante)" class="rounded-circle imagemProdutoSobre" style="height: 150px; width:150px" />
                     </figure>
                     <figcaption>
                         @Html.TextBoxFor(model => model.Palestrante, new { @readonly = "readonly", @class = "form-control", style = "width: 100%" })
@@ -47,9 +49,7 @@
                     <div>
                         <b>Investimento:</b> R$ @Html.DisplayFor(model => model.Valor)
                     </div>
-                    <div>
-                        <b>Quantidade de Vagas:</b> @Html.DisplayFor(model => model.QuantidadeDeVagas)
-                    </div>
+                    
                 </div>
             </div>
 

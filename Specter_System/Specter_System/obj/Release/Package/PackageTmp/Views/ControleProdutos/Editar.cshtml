@@ -1,0 +1,23 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/CssAreaAluno/styleAreaAluno.css" rel="stylesheet" />
+</head>
+
+@{ 
+    Layout = "~/Views/Shared/_LayoutAreaAluno.cshtml";
+}
+
+@model Specter_System.Models.Entitys.Produto
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div class="container">
+        <div class="col-md-6">
+            <label class="col-sm-2 col-form-label">Curso</label>
+            <div class="col-sm-4">
+                <input type="text" id="Nome" name="Nome" class="col-sm-2 col-form-label" />
+            </div>
+            
+        </div>
+    </div>
+}

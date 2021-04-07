@@ -9,21 +9,22 @@ namespace Specter_System.Models.Dados.Classes
     {
         private SqlDataReader dtReader;
 
-        protected bool Insert(Pedido model)
+        protected bool Insert_Grupo(Pedido model)
         {
             bool resp = true;
             int codPessoa = this.PesquisarCodPessoa(model);
-            int codCurso = this.PesquisarCodCurso(model);
-            SqlCommand command = new SqlCommand();
+            SqlCommand command = new SqlCommand("Insert_Pedido_Grupo", this.OpenConnection());
             command.CommandType = System.Data.CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("_pessoa_cod", codPessoa);
-            command.Parameters.AddWithValue("_curso_cod", codCurso);
-            command.Parameters.AddWithValue("_data", model.Data);
-            command.Parameters.AddWithValue("_horario", model.Horario);
-            command.Parameters.AddWithValue("_valor_original", model.Produto.Valor);
-            command.Parameters.AddWithValue("_valor_pago", model.ValorPagamento);
-            command.Parameters.AddWithValue("_tipo_inscricao", model.TipoInscricao);
+            command.Parameters.AddWithValue("codPessoa", codPessoa);
+            command.Parameters.AddWithValue("codProduto", model.Produto.Codigo);
+            command.Parameters.AddWithValue("data", model.Data);
+            command.Parameters.AddWithValue("horario", model.Horario);
+            command.Parameters.AddWithValue("valorOriginal", model.Valor_Pedido);
+            command.Parameters.AddWithValue("valorPago", model.ValorPagamento);
+            command.Parameters.AddWithValue("tipoInscricao", model.TipoInscricao);
+            command.Parameters.AddWithValue("tamanhoGrupo", model.Grupo.QtdComponentes);
+            command.Parameters.AddWithValue("status", model.Status);
 
             try
             {
@@ -38,13 +39,44 @@ namespace Specter_System.Models.Dados.Classes
             return resp;
         }
 
-        protected List<Pedido> Pesquisar_Pedidos_Clientes(Pedido model)
+        protected bool Insert_Individual(Pedido model)
         {
-            List<Pedido> listPedidos = null;
-            SqlCommand command = new SqlCommand("Select_Pedidos_Pessoa", this.OpenConnection());
+            bool resp = true;
+            int codPessoa = this.PesquisarCodPessoa(model);
+            int codCurso = this.PesquisarCodCurso(model);
+            SqlCommand command = new SqlCommand("Insert_Pedido_Individual", this.OpenConnection());
             command.CommandType = System.Data.CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("", model.Pessoa.Nome);
+            command.Parameters.AddWithValue("pessoa_cod", codPessoa);
+            command.Parameters.AddWithValue("curso_cod", codCurso);
+            command.Parameters.AddWithValue("data", model.Data);
+            command.Parameters.AddWithValue("horario", model.Horario);
+            command.Parameters.AddWithValue("valor_original", model.Valor_Pedido);
+            command.Parameters.AddWithValue("valor_pago", model.ValorPagamento);
+            command.Parameters.AddWithValue("tipo_inscricao", model.TipoInscricao);
+            command.Parameters.AddWithValue("status", model.Status);
+
+            try
+            {
+                command.ExecuteNonQuery();
+                resp = true;
+            }
+            catch (SqlException error)
+            {
+                throw new Exception($"Error! {error.Message} ");
+            }
+
+            return resp;
+        }
+
+        protected Pedidos Pesquisar_Pedidos_Online(Pedido model)
+        {
+            Pedidos pedidos = null;
+            List<Produto> produtos = new List<Produto>();
+            SqlCommand command = new SqlCommand("Select_Pedidos_Online", this.OpenConnection());
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("nomePessoa", model.Pessoa);
 
             try
             {
@@ -52,12 +84,19 @@ namespace Specter_System.Models.Dados.Classes
 
                 while (this.dtReader.Read())
                 {
-                    Pedido pedido = new Pedido()
+                    Produto produto = new Produto()
                     {
-                        Data = this.dtReader["data"].ToString(),
-                        Horario = this.dtReader["horario"].ToString(),
-                        ValorPagamento = this.dtReader["valor_pago"].ToString()
+                        Nome = this.dtReader["nome"].ToString(),
+                        Carga_Horaria = this.dtReader["carga_horaria"].ToString()
                     };
+
+                    produtos.Add(produto);
+
+                    pedidos = new Pedidos()
+                    {
+                        Produtos = produtos
+                    };
+
                 }
             }
             catch(SqlException error)
@@ -65,14 +104,14 @@ namespace Specter_System.Models.Dados.Classes
                 throw new Exception($"Error! {error.Message}");
             }
 
-            return listPedidos;
+            return pedidos;
         }
 
         private int PesquisarCodCurso(Pedido model)
         {
             int cod = 0;
             SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT cod FROM curso WHERE nome = @nome";
+            command.CommandText = "SELECT cod FROM produtos WHERE nome = @nome";
 
             command.Parameters.AddWithValue("@nome", model.Produto.Nome);
 
@@ -103,9 +142,9 @@ namespace Specter_System.Models.Dados.Classes
         {
             int cod = 0;
             SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT cod FROM pessoa WHERE nome = @nome";
+            command.CommandText = "SELECT cod FROM pessoas WHERE nome = @nome";
 
-            command.Parameters.AddWithValue("@nome", model.Pessoa.Nome);
+            command.Parameters.AddWithValue("@nome", model.Pessoa);
 
             try
             {

@@ -1,28 +1,29 @@
 ﻿
-<head>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/styleHome.css" rel="stylesheet" />
-    <link href="~/Content/styleResponsivo.css" rel="stylesheet" media="screen and(max-width: 480px)"/>
-</head>
+    <head>
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/styleHome.css" rel="stylesheet" />
+        <link href="~/Content/cssMedia/Home/mediaHomeResponsivo.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="home">
-    <div class="container" style="padding-left: 20%; padding-top: 18%">
+    <div>
         <div>
-            <h2 style="padding-left: 20%">Conheça Nossos Cursos</h2>
+            <h2>Conheça Nossos Cursos</h2>
         </div>
-        <div class="table-responsive" style="padding-top:6%">
+        <div class="table-responsive tabela">
             <table class="table table-borderless" cellspacing="20">
                 <tbody>
                     <tr>
                         <td class="tdEspaco">
-                            <a href="~/CursosOnline/Index"><img src="~/Models/imagens/icones/icone-online.png" class="img-responsive" /></a>
+                            <a href="~/CursosOnline/Index"><img src="~/Models/imagens/icones/icone-online.png" class="img-responsive imagem" /></a>
                         </td>
                         <td class="tdEspaco">
-                            <a href="~/CursosPresenciais/Index"><img src="~/Models/imagens/icones/icone-presenciais.png" class="img-responsive" /></a>
+                            <a href="~/CursosPresenciais/Index"><img src="~/Models/imagens/icones/icone-presenciais.png" class="img-responsive imagem" /></a>
                         </td>
                     </tr>
                 </tbody>

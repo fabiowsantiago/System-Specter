@@ -1,0 +1,37 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/styleHome.css" rel="stylesheet" />
+    <link href="~/Content/cssMedia/mediaProdutosIndex.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+</head>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @model List<Specter_System.Models.Entitys.Produto>
+
+    <div class="container-fluid" style="padding-top: 15%">
+        <div class="row">
+            @foreach (var curso in Model)
+            {
+                <div class="col-xs-6 col-sm-4 sobreProdutosIndex">
+                    <figure>
+                        <img src="@Html.DisplayFor(model=>curso.image.CaminhoCurso)" />
+                        <figcaption>
+                            <b>@Html.DisplayFor(model => curso.Nome)</b><br />
+                            <b>Modalidade:</b> @Html.DisplayFor(model => curso.Modalidade)<br />
+                            <b>Carga Horaria: </b>@Html.DisplayFor(model => curso.Carga_Horaria)
+                            <div>
+                                @Html.ActionLink("Saiba Mais", "Sobre", new { nome = curso.Nome })
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+            }
+        </div>
+    </div>
+}

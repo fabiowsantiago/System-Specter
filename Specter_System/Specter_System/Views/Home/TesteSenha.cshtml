@@ -1,0 +1,40 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/styleHome.css" rel="stylesheet" />
+</head>
+
+@{ 
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+@model Specter_System.Models.Entitys.Usuario
+
+<div>
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Código</label>
+            <div class="col-sm-4">
+                @Html.TextBoxFor(model => model.codSenha, new { @class = "form-control", @placeholder = "Informe o código encaminhado por e-mail" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">NOVA Senha</label>
+            <div class="col-sm-4">
+                @Html.TextBoxFor(model => model.Senha, new { @class = "form-control", @type = "password", @placeholder = "Digite uma nova senha" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Confirmar Senha</label>
+            <div class="col-sm-4">
+                @Html.TextBoxFor(model => model.Senha, new { @class = "form-control", @type = "password", @placeholder = "Digite novamente a senha" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3"></label>
+            <div class="col-sm-4">
+                <button class="btn btn-success" name="action:AlterarSenha">ALTERAR SENHA</button>
+            </div>
+        </div>
+    }
+</div>

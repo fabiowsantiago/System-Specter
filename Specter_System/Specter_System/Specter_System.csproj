@@ -47,10 +47,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Catharsis.Commons, Version=2.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Catharsis.Commons.2.8\lib\net451\Catharsis.Commons.dll</HintPath>
+    </Reference>
+    <Reference Include="Catharsis.Web.Widgets, Version=2.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Catharsis.Web.Widgets.2.9.2\lib\net40\Catharsis.Web.Widgets.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Conexao\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -128,7 +143,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AreaAdministrativaController.cs" />
     <Compile Include="Controllers\AreaAlunoController.cs" />
+    <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\ControleProdutosController.cs" />
+    <Compile Include="Controllers\CursosOnlineController.cs" />
     <Compile Include="Controllers\CursosPresenciaisController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InscricaoController.cs" />
@@ -137,33 +154,49 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Dados\Business\AppPersistenciaGrupo.cs" />
+    <Compile Include="Models\Dados\Business\AppPersistenciaModulo.cs" />
+    <Compile Include="Models\Dados\Business\AppPersistenciaPedido.cs" />
     <Compile Include="Models\Dados\Business\AppPersistenciaPessoa.cs" />
     <Compile Include="Models\Dados\Business\AppPersistenciaProduto.cs" />
     <Compile Include="Models\Dados\Business\AppPersistenciaUsuario.cs" />
     <Compile Include="Models\Dados\Classes\Connection.cs" />
     <Compile Include="Models\Dados\Classes\ConnectionSQLServer.cs" />
     <Compile Include="Models\Dados\Classes\GrupoDAO.cs" />
+    <Compile Include="Models\Dados\Classes\ModuloDAO.cs" />
     <Compile Include="Models\Dados\Classes\PedidoDAO.cs" />
     <Compile Include="Models\Dados\Classes\PessoaDAO.cs" />
     <Compile Include="Models\Dados\Classes\ProdutoDAO.cs" />
     <Compile Include="Models\Dados\Classes\UsuarioDAO.cs" />
     <Compile Include="Models\Dados\Interfaces\IPGrupo.cs" />
+    <Compile Include="Models\Dados\Interfaces\IPModulo.cs" />
+    <Compile Include="Models\Dados\Interfaces\IPPedido.cs" />
     <Compile Include="Models\Dados\Interfaces\IPPessoa.cs" />
     <Compile Include="Models\Dados\Interfaces\IPProduto.cs" />
     <Compile Include="Models\Dados\Interfaces\IPUsuario.cs" />
+    <Compile Include="Models\Entitys\Certificado.cs" />
     <Compile Include="Models\Entitys\Grupo.cs" />
+    <Compile Include="Models\Entitys\Modulo.cs" />
     <Compile Include="Models\Entitys\PagSeguro.cs" />
+    <Compile Include="Models\Entitys\Pdf.cs" />
     <Compile Include="Models\Entitys\Pedido.cs" />
+    <Compile Include="Models\Entitys\Pedidos.cs" />
     <Compile Include="Models\Entitys\Produtos.cs" />
     <Compile Include="Models\Entitys\Imagem.cs" />
     <Compile Include="Models\Entitys\Pessoa.cs" />
     <Compile Include="Models\Entitys\Produto.cs" />
+    <Compile Include="Models\Entitys\Video.cs" />
+    <Compile Include="Models\Servicos\Business\AppBusinessCertificado.cs" />
     <Compile Include="Models\Servicos\Business\AppBusinessGrupo.cs" />
+    <Compile Include="Models\Servicos\Business\AppBusinessArquivos.cs" />
+    <Compile Include="Models\Servicos\Business\AppBusinessModulo.cs" />
     <Compile Include="Models\Servicos\Business\AppBusinessPedido.cs" />
     <Compile Include="Models\Servicos\Business\AppBusinessPessoa.cs" />
     <Compile Include="Models\Servicos\Business\AppBusinessProduto.cs" />
     <Compile Include="Models\Servicos\Business\AppBusinessUsuario.cs" />
+    <Compile Include="Models\Servicos\Infaces\INArquivo.cs" />
+    <Compile Include="Models\Servicos\Infaces\INCertificado.cs" />
     <Compile Include="Models\Servicos\Infaces\INGrupo.cs" />
+    <Compile Include="Models\Servicos\Infaces\INModulo.cs" />
     <Compile Include="Models\Servicos\Infaces\INPedido.cs" />
     <Compile Include="Models\Servicos\Infaces\INProduto.cs" />
     <Compile Include="Models\Servicos\Infaces\INUsuario.cs" />
@@ -178,8 +211,18 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Css Catologo\style.css" />
+    <Content Include="Content\Css Produtos Online\style.css" />
+    <Content Include="Content\cssMedia\AreaAluno\mediaAreaAluno.css" />
+    <Content Include="Content\cssMedia\Home\mediaCadastroPessoa.css" />
+    <Content Include="Content\cssMedia\Home\mediaHomeResponsivo.css" />
+    <Content Include="Content\cssMedia\Home\mediaLogin.css" />
+    <Content Include="Content\cssMedia\mediaProdutosIndex.css" />
+    <Content Include="Content\cssMedia\Home\mediaSobreEmpresa.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\styleAdministrativo.css" />
     <Content Include="Content\styleResponsivo.css" />
+    <Content Include="Content\StyleTeste.css" />
     <Content Include="Lib\jQuery-Mask-Plugin-master\dist\jquery.mask.js" />
     <Content Include="Lib\jQuery-Mask-Plugin-master\dist\jquery.mask.min.js" />
     <Content Include="Lib\jQuery-Mask-Plugin-master\Gruntfile.js" />
@@ -201,11 +244,18 @@
     <Content Include="Lib\jQuery-Mask-Plugin-master\test\zepto\data.js" />
     <Content Include="Lib\jQuery-Mask-Plugin-master\test\zepto\event.js" />
     <Content Include="Lib\jQuery-Mask-Plugin-master\test\zepto\zepto.min.js" />
-    <Content Include="Scripts\bootstrap.bundle.js" />
-    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Models\imagens\catalogo\curso1.jpg" />
+    <Content Include="Models\imagens\catalogo\curso2.jpg" />
+    <Content Include="Models\imagens\catalogo\curso3.jpg" />
+    <Content Include="Models\imagens\catalogo\curso4.jpg" />
+    <Content Include="Models\imagens\catalogo\curso5.jpg" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Content\bootstrap.js" />
     <Content Include="Content\bootstrap.min.js" />
-    <Content Include="Content\styleAreaAluno.css" />
+    <Content Include="Content\CssAreaAluno\styleAreaAluno.css" />
     <Content Include="Content\styleHome.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -221,28 +271,21 @@
     <Content Include="Models\imagens\icones\icone-telefone.png" />
     <Content Include="Models\imagens\icones\logoMarca.png" />
     <Content Include="Content\bootstrap.bundle.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Content\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\Funcoes\AreaAdministrativa.js" />
     <Content Include="Scripts\index.js.flow" />
     <Content Include="Scripts\esm\popper.min.js.map" />
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <Content Include="Scripts\bootstrap.min.js.map" />
-    <Content Include="Scripts\bootstrap.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.js.map" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Lib\jQuery-Mask-Plugin-master\.gitignore" />
     <Content Include="Lib\jQuery-Mask-Plugin-master\.jshintrc" />
     <Content Include="Lib\jQuery-Mask-Plugin-master\.ruby-version" />
@@ -260,8 +303,20 @@
     <Content Include="Lib\jQuery-Mask-Plugin-master\package-lock.json" />
     <Content Include="Lib\jQuery-Mask-Plugin-master\package.json" />
     <Content Include="Lib\jQuery-Mask-Plugin-master\README.md" />
+    <Content Include="App_Browsers\qt.browser" />
+    <Content Include="Certificados\Teste.docx" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\inputmask\bindings\inputmask.binding.js" />
     <Content Include="Scripts\inputmask\inputmask.js" />
@@ -285,6 +340,8 @@
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\ScriptInscricao.js" />
+    <Content Include="Scripts\ScriptProduto.js" />
+    <Content Include="Scripts\ScriptProdutosOnline.js" />
     <Content Include="Scripts\ScriptsMensagens.js" />
     <Content Include="Scripts\src\index.js" />
     <Content Include="Scripts\src\methods\defaults.js" />
@@ -354,6 +411,11 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Scripts\Validacoes.js" />
+    <Content Include="Scripts\WebWidgets\cackle.js" />
+    <Content Include="Scripts\WebWidgets\disqus.js" />
+    <Content Include="Scripts\WebWidgets\google_analytics.js" />
+    <Content Include="Scripts\WebWidgets\google_plusone.js" />
+    <Content Include="Scripts\WebWidgets\twitter_initialize.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -370,7 +432,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\CursosPresenciais\Index.cshtml" />
     <Content Include="Views\CursosPresenciais\Sobre.cshtml" />
-    <Content Include="Views\CursosPresenciais\EfetuarCompra.cshtml" />
+    <Content Include="Views\CursosPresenciais\CarrinhoCompra.cshtml" />
     <Content Include="Views\AreaAluno\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAreaAluno.cshtml" />
     <Content Include="Views\AreaAluno\AlterarSenha.cshtml" />
@@ -388,7 +450,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\ControleProdutos\Create.cshtml" />
+    <Content Include="Views\ControleProdutos\CreateProdutoPresencial.cshtml" />
     <Content Include="Views\Home\SobreEmpresa.cshtml" />
     <Content Include="Views\Home\CadastrarUsuario.cshtml" />
     <Content Include="Views\ControleProdutos\Pesquisar.cshtml" />
@@ -397,12 +459,29 @@
     <Content Include="Views\AreaAluno\PagSeguro.cshtml" />
     <Content Include="Views\AreaAluno\ConsultarPagamento.cshtml" />
     <Content Include="Views\ControleProdutos\Deletar.cshtml" />
+    <Content Include="Views\Home\RecuperarEmail.cshtml" />
+    <Content Include="Views\CursosOnline\Index.cshtml" />
+    <Content Include="Views\CursosOnline\Sobre.cshtml" />
+    <Content Include="Views\Home\RecuperarSenha.cshtml" />
+    <Content Include="Views\Home\TesteSenha.cshtml" />
+    <Content Include="Views\Home\AlterarSenha.cshtml" />
+    <Content Include="Views\AreaAluno\ExibirCertificados.cshtml" />
+    <Content Include="Views\AreaAluno\EmitirCertificado.cshtml" />
+    <Content Include="Views\AreaAluno\Video.cshtml" />
+    <Content Include="Views\AreaAluno\IntegrarGrupo.cshtml" />
+    <Content Include="Views\AreaAluno\CursosOnline.cshtml" />
+    <Content Include="Views\ControleProdutos\CreateProdutoOnline.cshtml" />
+    <Content Include="Views\AreaAluno\ExibirCursosOnlines.cshtml" />
+    <Content Include="Views\ControleProdutos\Editar.cshtml" />
+    <Content Include="Views\CursosOnline\CarrinhoCompra.cshtml" />
+    <Content Include="Views\Catalogo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\imagens\cursos\onlines\" />
     <Folder Include="Models\imagens\cursos\palestrantes\" />
     <Folder Include="Models\imagens\cursos\presenciais\" />
+    <Folder Include="Models\videos\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -414,6 +493,41 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Specter_System.Validations\Specter_System.Validations.csproj">
+      <Project>{27185514-da83-46ea-b867-e7666dd6e1f3}</Project>
+      <Name>Specter_System.Validations</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,17 +1,21 @@
 ﻿<head>
-    <link href="~/Content/styleAreaAluno.css" rel="stylesheet" />
+
+    <link href="~/Content/CssAreaAluno/styleAreaAluno.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/cssMedia/AreaAluno/mediaAreaAluno.css" rel="stylesheet" />
 </head>
 
 @{
     Layout = "~/Views/Shared/_LayoutAreaAluno.cshtml";
 }
 
-<div class="container" style="padding-left: 15%; padding-top: 10%">
+<div class="container indexAreaAluno" style="padding-left: 15%; padding-top: 10%">
     <div style="width: 100%">
         <figure>
-            <a href="~/CursosOnline/Index"><img src="~/Models/imagens/icones/icone-online.png" style="width:35%; width:35%" /></a>
-            <a href="~/CursosPresenciais/Index"> <img src="~/Models/imagens/icones/icone-presenciais.png" style="width:35%; width:35%" /></a>
+            <a href="~/CursosOnline/Index"><img src="~/Models/imagens/icones/icone-online.png" style="width:35%; width:35%" class="imagemAreaAluno"/></a>
+            <a href="~/CursosPresenciais/Index"> <img src="~/Models/imagens/icones/icone-presenciais.png" style="width:35%; width:35%" class="imagemAreaAluno"/></a>
         </figure>
     </div>
 </div>

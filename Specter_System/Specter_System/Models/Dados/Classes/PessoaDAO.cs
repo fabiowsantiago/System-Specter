@@ -41,9 +41,9 @@ namespace Specter_System.Models.Dados.Classes
         {
             bool resp = false;
             SqlCommand command = new SqlCommand();
-            command.CommandText = "SELECT cpf FROM pessoa WHERE cpf = @cpf";
+            command.CommandText = "SELECT cpf FROM pessoas WHERE cpf = @cpf";
 
-            command.Parameters.AddWithValue("@cpf", model.CPF);
+            command.Parameters.AddWithValue("cpf", model.CPF);
 
             try
             {

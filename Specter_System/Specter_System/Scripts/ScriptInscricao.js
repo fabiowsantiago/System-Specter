@@ -7,17 +7,16 @@ function SelecionarOpInscricao(elemento) {
 
         case "[Selecione]":
             document.getElementById('divCriarGrupo').style.display = 'none';
-           // document.getElementById('buttonFinalizar').style.display = 'none';
+       
             break; 
         case "Individual":
             document.getElementById('divCriarGrupo').style.display = 'none';
-            document.getElementById('buttonFinalizar').style.display = 'inline';
+           document.getElementById('buttonFinalizar').style.display = 'inline';
             break;
         case "Grupo":
             document.getElementById('divCriarGrupo').style.display = 'inline';
             document.getElementById('buttonFinalizar').style.display = 'none';
             break;
-
     }
 }
 
@@ -37,22 +36,27 @@ function CalcularDesconto(elemento, valorCurso) {
 
         case '2':
             valor = valorUnit * 2;
-            total = "R$" + " " + (valor - (valor * 0.02));
+            total = "R$" + " " + Math.round((valor - (valor * 0.02)));
             document.getElementById("valorTotal").innerHTML = total;
             break;
         case '3':
             valor = valorUnit * 3;
-            total = "R$" + " " + (valor - (valor * 0.03));
+            total = "R$" + " " + Math.round((valor - (valor * 0.03)));
             document.getElementById("valorTotal").innerHTML = total;
             break;
         case '4':
             valor = valorUnit * 4;
-            total = "R$" + " " + (valor - (valor * 0.04));
+            total = "R$" + " " + Math.round((valor - (valor * 0.04)));
             document.getElementById("valorTotal").innerHTML = total;
             break;
         case '5':
             valor = valorUnit * 5;
-            total = "R$" + " " + (valor - (valor * 0.05));
+            total = "R$" + " " + Math.round((valor - (valor * 0.05)));
+            document.getElementById("valorTotal").innerHTML = total;
+            break;
+        case '6':
+            valor = valorUnit * 6;
+            total = "R$" + " " + Math.round((valor - (valor * 0.06)));
             document.getElementById("valorTotal").innerHTML = total;
             break;
     }
@@ -69,15 +73,26 @@ function ExibirOpGrupo() {
 
 function ExibirMensagem(mensagem) {
 
-    if (mensagem = 'Já existe um grupo com este nome') {
+    if (mensagem == 'Pre inscricao realizado com sucesso') {
 
-        alert('Já existe um grupo com este nome');
+        alert('Efetue o pagamento para concluir sua inscrição');
+        document.getElementById('selectOpInscricao').style.display = 'none';
+        document.getElementById('divCriarGrupo').style.display = 'none';
         document.getElementById('buttonFinalizar').style.display = 'inline';
     }
-    else {
-
-        ExibirBotaoPagSeguro();
+    else if (mensagem == "Grupo ja existe") {
+        alert('Já existe um grupo com este nome');
     }
+    else if (mensagem == "Senhas nao conferem") {
+        alert('Senhas não conferem');
+    }
+    else if (mensagem == "Vagas indisponiveis") {
+        alert('Vagas indisponíveis');
+    }
+    //else {
+
+    //    ExibirBotaoPagSeguro();
+    //}
    
 }
 

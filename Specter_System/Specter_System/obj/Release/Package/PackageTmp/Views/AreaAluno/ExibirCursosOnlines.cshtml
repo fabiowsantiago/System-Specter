@@ -1,0 +1,57 @@
+﻿<head>
+    <script src="~/Content/bootstrap.min.js"></script>
+    <link href="~/Content/CssAreaAluno/styleAreaAluno.css" rel="stylesheet" />
+</head>
+
+@{ 
+    Layout = "~/Views/Shared/_LayoutAreaAluno.cshtml";
+}
+
+@model Specter_System.Models.Entitys.Produto
+
+<div class="container"style="padding-top:12%; padding-left: 15%">
+    <h2>Curso Online</h2>
+    <hr/>
+    <div>
+
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+            <div class="form-group row">
+                <figure id="video_player">
+                    <video controls width="500px">
+                        <source src="@Model.ListVideos[0].Caminho" type="video/mp4" />
+                        <source src="~/Models/videos/Modulo1.mp4" type="video/webm" />
+                    </video>
+                </figure>
+                <ul class="col-sm-4 list-group" style="padding-left: 15%">
+                    @foreach (var item in Model.ListVideos)
+                    {
+                        <li class="list-group-item list-group-item-secondary"><a href="@item.Caminho">@item.Nome</a></li>
+                    }
+                </ul>
+            </div>
+
+            <script type="text/javascript">
+                var video_player = document.getElementById("video_player"),
+                    links = video_player.getElementsByTagName('a');
+
+                for (var i = 0; i < links.length; i++) {
+                    links[i].onclick = handler;
+                }
+
+                function handler(e) {
+                    e.preventDefault();
+                    videotarget = this.getAttribute("href");
+                    filename = videotarget.substr(0, videotarget.lastIndexOf('.')) || videotarget;
+                    video = document.querySelector("#video_player video");
+                    video.removeAttribute('poster');
+                    source = document.querySelectorAll("#video_player video source");
+                    source[0].src = filename + ".mp4";
+                    source[1].src = filename + ".webm";
+                    video.load();
+                    video.play();
+                }
+            </script>
+        }
+    </div>
+</div>

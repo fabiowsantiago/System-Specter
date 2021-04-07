@@ -2,10 +2,14 @@
     <title>Expert Nutri</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/Content/cssMedia/Home/mediaCadastroPessoa.css" rel="stylesheet" />
 
+    <script src="~/Scripts/Validacoes.js"></script>
+    <script src="~/Scripts/ScriptsMensagens.js"></script>
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/bootstrap.bundle.min.js"></script>
-
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
 </head>
 
 @{
@@ -21,17 +25,23 @@
             @Html.AntiForgeryToken()
             @Html.ValidationSummary()
 
-            <div>
+            <div class="cadastroPessoa">
                 <div class="form-group row justify-content-md-center" style="padding-top: 2%">
                     <label class="col-sm-2 col-form-label">Nome</label>
                     <div class="col-sm-4">
-                        @Html.TextBoxFor(model => model.Nome, new { @class = "form-control", @placeholder = "Digite o nome completo", @required = "required" })
+                        @Html.TextBoxFor(model => model.Nome, new {@class = "form-control", @placeholder = "Digite o nome completo", @required = "required" })
                     </div>
                 </div>
                 <div class="form-group row justify-content-md-center">
                     <label class="col-sm-2 col-form-label">CPF</label>
                     <div class="col-sm-4">
-                        @Html.EditorFor(model => model.CPF, new { htmlAttributes = new { @class = "form-control", @placeholder = "000.000.000-00", data_tipo = "cpf", @required = "required" } })
+                        @Html.TextBoxFor(model => model.CPF, new { @class = "form-control",
+                                                                   @required = "required",
+                                                                   id = "cpf",
+                                                                   @onkeydown ="javascript: fMasc( this, mCPF )",
+                                                                   @Onblur = "javascript: ValidarCpf(this)",
+                                                                   @placeholder="000.000.000-00"
+                                                                 })
                     </div>
                 </div>
                 <div class="form-group row justify-content-md-center">
@@ -43,14 +53,31 @@
                 <div class="form-group row justify-content-center">
                     <label class="col-sm-2 col-form-label">Profissão</label>
                     <div class="col-sm-4">
-                        <select class="dropdown">
-                            <option class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <select class="dropdown" name="profissao">
+                            <option class="btn btn-secondary dropdown-toggle"
+                                    role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                    value="[Selecione]">
                                 [Selecione]
                             </option>
-                            <option class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <option class="btn btn-secondary dropdown-toggle"
+                                    role="button"
+                                    id="dropdownMenuLink"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                    value="ESTUDANTE">
                                 ESTUDANTE
                             </option>
-                            <option class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <option class="btn btn-secondary dropdown-toggle"
+                                    role="button"
+                                    id="dropdownMenuLink"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                    value="NUTRICIONISTA">
                                 NUTRICIONISTA
                             </option>
                         </select>
@@ -58,16 +85,19 @@
                 </div>
                 <br />
                 <div class="form-group row justify-content-md-center" , style="padding-left:15%">
-                    <button type="submit" class="btn btn-primary" name="action:CadastrarPessoa" style="background:#002060;">CADASTRAR</button>
+                    <button type="submit" class="btn btn-primary"
+                            name="action:CadastrarPessoa"
+                            style="background:#002060;">
+                            CADASTRAR
+                      </button>
                 </div>
             </div>
 
             if (!string.IsNullOrWhiteSpace(ViewBag.Resposta))
-            {
-                <script>alert('@ViewBag.Resposta');</script>
-            }
-
+                {
+                    <script>RealizarCadastroPessoa('@ViewBag.Resposta');</script>
+                }
         }
     }
-   
+
 </div>

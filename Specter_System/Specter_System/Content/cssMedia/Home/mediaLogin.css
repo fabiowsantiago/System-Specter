@@ -1,0 +1,17 @@
+﻿
+@media (max-width: 640px)
+{
+    .loginResponsivo{
+        padding-top: 8%;
+       
+    }
+
+    .telaLogin {
+        border-radius: 65px;
+        width: 80%;
+        background-color: #002060;
+        height: 100px;
+    }
+
+
+}

@@ -16,13 +16,6 @@ header {
     background-color: #002060;
 }
 
-
-.img {
-    height: 40px;
-    width: 40px;
-    left: 80px;
-}
-
 .formCadastro {
     padding-top: 50px;
     padding-left: 20%;
@@ -51,8 +44,6 @@ footer {
     position: fixed;
     bottom: 0px;
     width: 100%;
-
-    background-color: #002060;
     color: white;
 }
 
@@ -91,4 +82,33 @@ footer {
     width: 60%;
     background-color: #002060;
     height: 400px;
+}
+
+.containerResponsivo{
+    padding-top: 18%;
+    padding-left: 20%;
+    
+}
+
+.containerResponsivo h2{
+    padding-left: 20%
+}
+
+/*------------------------ FORMATAÇÃO DA VIEW RECUPERAR E-MAIL ---------------------- */
+
+.recuperarEmail {
+    padding-top: 17%;
+    padding-left: 15%;
+}
+
+    .recuperarEmail hr {
+        width: 80%;
+        border: none;
+        height: 1px;
+        color: #333;
+        background-color: #333;
+    }
+
+.formRecuperarEmail {
+    padding-top: 3%;
 }

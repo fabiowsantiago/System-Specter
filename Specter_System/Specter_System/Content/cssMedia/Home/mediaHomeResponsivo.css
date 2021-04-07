@@ -1,0 +1,28 @@
+﻿@media screen and (min-width: 260px) and (max-width: 360px){
+
+    .tabela {
+        padding-left: 2rem !important;
+        /*padding-top: 1rem !important;*/
+    }
+}
+
+@media screen and (min-width: 980px) and (max-width: 1020px){
+
+    .tabela {
+            padding-left: 13rem !important;
+            padding-top: 3rem !important;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    h2 {
+        padding-left: 35rem !important;
+        padding-top: 3rem !important;
+    }
+
+    .tabela {
+        padding-left: 25rem !important;
+        padding-top: 3rem !important;
+    }
+}

@@ -31,13 +31,13 @@
     <div class="form-group row" id="divNomeCurso">
         <label class="col-sm-1 col-form-label">Curso</label>
         <div class="col-sm-7" style="padding-left:8%">
-            @Html.DisplayFor(model => model.Curso.Nome, new { @class = "form-control", @placeholder = "Nome do Curso", @style = "width:83%" })
+            @Html.DisplayFor(model => model.Produto.Nome, new { @class = "form-control", @placeholder = "Nome do Curso", @style = "width:83%" })
         </div>
     </div>
     <div class="form-group row">
         <label class="col-sm-1 col-form-label">Valor</label>
         <div id="valorTotal" class="col-sm-3" style="padding-left: 8%">
-            R$ @Html.DisplayFor(model => model.Curso.Valor, new { @class = "form-control" })
+            R$ @Html.DisplayFor(model => model.Produto.Valor, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group row" div="divOpInscricao">
@@ -96,7 +96,7 @@
         </div>
 
         <div class="form-group row justify-content-center">
-            <input type="submit" class="btn btn-primary" @*name="action:Index"*@ value="CRIAR" />
+            <input type="submit" class="btn btn-primary" @*name="action:Index"*@ value="CRIAR GRUPO" />
         </div>
     </div>
     <div style="display:none" id="buttonFinalizar">

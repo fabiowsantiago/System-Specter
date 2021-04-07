@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web;
 
 namespace Specter_System.Models.Entitys
@@ -9,6 +10,7 @@ namespace Specter_System.Models.Entitys
         public int Codigo { get; set; }
         public string Nome { get; set; }
         public string Palestrante { get; set; }
+        public string CurriculoPalestrante { get; set; }
         public string Modalidade { get; set; }
         public DateTime Data { get; set; }
         public DateTime Data_Inicio { get; set; }
@@ -23,7 +25,13 @@ namespace Specter_System.Models.Entitys
         public string LabResp { get; set; }
         public HttpPostedFileBase Imagem { get; set; }
         public HttpPostedFileBase Imagem_Palestrante { get; set; }
-
         public Imagem image { get; set; }
+        public List<Produto> Produtos { get; set; }
+        public Video Video { get; set; }
+        public int QtdModulos { get; set; }
+        public IEnumerable<HttpPostedFileBase> Videos{ get; set; }
+        public List<Video> ListVideos { get; set; }
+        public Modulo Modulo{ get; set; }
+        public List<Modulo> Modulos { get; set; }
     }
 }

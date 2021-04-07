@@ -1,6 +1,10 @@
 ﻿<head>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/styleHome.css" rel="stylesheet" />
+    @*<meta name="viewport" content="width=device-width, initial-scale=1" />*@
+    @*<link href="~/Content/cssMedia/Home/mediaLogin.css" rel="stylesheet" />*@
+    
+    <script src="~/Scripts/ScriptsMensagens.js"></script>
     <meta charset="utf-8" />
 </head>
 
@@ -9,13 +13,10 @@
 <nav class="navbar-expand-lg" style="background-color:#002060">
     <ul class="navbar navbar-expand-md justify-content-end">
         <li class="nav-item"><a class="nav-link" href="~/Home/Login" style="color:white">LOGIN</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" style="color:white">CADASTRE-SE</a></li>
+        <li class="nav-item"><a class="nav-link" href="~/Home/CadastrarPessoa" style="color:white">CADASTRE-SE</a></li>
     </ul>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #E0FFFF">
         <a><img src="~/Models/imagens/icones/logoMarca.png" /></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <div>
             <ul class="navbar navbar-collapse mr-auto">
                 <li class="nav-item"><a class="nav-link" href="~/Home/Index" style="color:black">INÍCIO</a></li>
@@ -40,23 +41,20 @@
                     <div class="form-group justify-content-center">
                         <label class="col-sm-6 col-form-label" style="color:white; padding-left:20%">Seu E-mail</label>
                         <div class="form-group justify-content-center" style="padding-left:20%">
-                            @Html.TextBoxFor(model => Model.Email, new { @class = "form-control", @placeholder = "Informe seu e-mail de cadastro", @style = "width:75%", @required = "required" })
+                            <input type="text" id="Email" name="Email" class="form-control" placeholder="Informe seu e-mail de cadastro" style="width:75%" required="required"/>
                             <div class="form-group row" style="color:white; padding-left:4%">
-                                @Html.ActionLink("Esqueceu o e-mail?", "../BuscarEmail/Index")
+                                @Html.ActionLink("Esqueceu o e-mail?", "RecuperarEmail")
                             </div>
                         </div>
                     </div>
                     <div class="form-group justify-content-center">
                         <label class="col-sm-6 col-form-label" style="color:white; padding-left:20%">Senha</label>
                         <div class="form-group justify-content-center" style="padding-left:20%">
-                            @Html.TextBoxFor(model => Model.Senha, new { @class = "form-control", @placeholder = "Informe sua senha", @style = "width:75%", @type = "password", @required = "required" })
+                            <input type="password" id="Senha" name="Senha" class="form-control" placeholder="Informe sua senha" style="width: 75%" required/>
                             <div class="form-group row" style="color:white; padding-left:4%">
-                                @Html.ActionLink("Esqueceu a senha?", "", new { @style = "color: White;" })
+                                @Html.ActionLink("Esqueceu a senha?", "RecuperarSenha", new { @style = "color: White;" })
                             </div>
                         </div>
-                        @*<div class="form-group justify-content-center" style="padding-left:20%;color:white">
-                                @Html.DisplayFor(model => model.Resposta)
-                            </div>*@
                         <div style="padding-left: 40%;">
                             <input type="submit" class="btn btn-primary btn-lg" name="action:Login" value="ENTRAR" style="background-color:#E0FFFF; color:black" />
                         </div>
@@ -67,9 +65,7 @@
                 if (ViewBag.Validacao != null)
                 {
                     <script type="text/javascript">
-                        window.onload = function () {
-                            alert("Usuário ou senha inválido");
-                        }
+                       ValidarLogin('@ViewBag.Validacao')
                     </script>
                 }
             }

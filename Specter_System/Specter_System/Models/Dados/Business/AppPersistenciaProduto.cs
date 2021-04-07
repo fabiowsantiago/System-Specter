@@ -7,9 +7,16 @@ namespace Specter_System.Models.Dados.Business
 {
     public class AppPersistenciaProduto : ProdutoDAO, IPProduto
     {
-        public List<Produto> ListarCursosAbertos(Produto curso)
+        //Método para retornar a lista dos cursos por Modalidade para a View Index Home
+        public List<Produto> Listar_Cursos(Produto model)
         {
-            List<Produto> cursos = this.Listar_Cursos_Abertos(curso);
+            List<Produto> cursos = null;
+
+            if ("Online".Equals(model.Modalidade))
+                cursos = this.Select_Produtos_Online();
+
+            else
+                cursos = this.Listar_Cursos_Abertos(model);
 
             return cursos;
         }
@@ -17,6 +24,13 @@ namespace Specter_System.Models.Dados.Business
         public bool CadastrarCurso(Produto curso)
         {
             bool resp = this.Insert(curso);
+
+            return resp;
+        }
+
+        public bool CadastrarCursosOnline(Produto model)
+        {
+            bool resp = this.Insert_Produtos_Online(model);
 
             return resp;
         }
@@ -43,11 +57,18 @@ namespace Specter_System.Models.Dados.Business
             return course;
         }
 
+        public Produto SelectSobreProdutoOnline(Produto model)
+        {
+            Produto prod = this.Select_Sobre_Produto_Online(model);
+
+            return prod;
+        }
+
         public Produto Pesqusiar_Quantidade_Vagas(Produto model)
         {
-            Produto curso = this.PesquisarVagasDisponiveis(model);
+            model = this.PesquisarVagasDisponiveis(model);
 
-            return curso;
+            return model;
         }
 
         public List<Produto> PesquisarCursos(Produto curso)
@@ -57,11 +78,33 @@ namespace Specter_System.Models.Dados.Business
             return listCurso;
         }
 
+        public bool Update_Disponibilidade(Produto model)
+        {
+            bool resp = this.UpdateDisponibilidade(model);
+
+            return resp;
+        }
+
         public bool ExcluirCurso(Produto curso)
         {
             bool resp = this.Excluir_Curso(curso);
 
             return resp;
+        }
+
+        //Método para retornar o link do curriculo do(a) palestrante
+        public string SelectLink(Produto model)
+        {
+            string link = this.Select_Link(model);
+
+            return link;
+        }
+
+        public Produto SelectVideos(Produto model)
+        {
+            Produto produto = this.Select_Videos(model);
+
+            return produto;
         }
     }
 }

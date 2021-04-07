@@ -1,0 +1,74 @@
+﻿/* ******************* ESTILIZANDO MENU ****************************/
+body, ul, li, p{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    font-size: 1.2rem;
+    font-family: Arial;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.header1 {
+    background-color: #002060;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.menu1{
+    display: flex;
+}
+
+.menu1 li{
+    padding-left: 10px;
+}
+
+.menu1 li a:hover {
+    background-color: darkgoldenrod;
+}
+
+.header2 {
+    background-color: #E0FFFF;
+    display: flex;
+    flex-wrap: wrap;
+    
+    align-items: center;
+    padding: 20px;
+}
+.menu2 {
+    
+    display: flex;
+}
+
+.menu2 li {
+    padding-left: 10px;
+}
+
+.menu2 ul li a{
+    color: black;
+}
+
+/* **************************** ESTILIZANDO AS IMAGENS ************************** */
+
+h2{
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.flex > div{
+    flex: 1 1 200px;
+    margin: 5px;
+}

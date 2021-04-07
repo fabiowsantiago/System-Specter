@@ -1,0 +1,53 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/CssAreaAluno/styleAreaAluno.css" rel="stylesheet" />
+</head>
+
+@{
+    ViewBag.Title = "CursosEmAndamento";
+    Layout = "~/Views/Shared/_LayoutAreaAluno.cshtml";
+}
+
+@model Specter_System.Models.Entitys.Pedidos
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+<div class="container" style="padding-left: 25%; padding-top: 10%">
+    <h2>Meus cursos online</h2>
+    <hr style="border-color:black; border-style:solid; border-width: 1px 0" />
+
+
+    <table class="table table-responsive table-responsive-md" id="tabela" style="width: 70%">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Curso)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CargaHoraria)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Produtos)
+            {
+                <tr>
+                    <td style="width:30%">
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td style="width:2%">
+                        @Html.DisplayFor(modelItem => item.Carga_Horaria)
+                    </td>
+                    <td style="width: 25%">
+                        @*<a href="/AreaAluno/ExibirCursosOnlines" style="color:blue">Acessar</a>*@
+                        @Html.ActionLink("Acessar", "ExibirCursosOnlines", new { nome = item.Nome, @class = "tabela" }, new { @style = "color:blue;" }) |
+                        @Html.ActionLink("Emitir Certificado", "", new { nome = item.Nome, @class = "tabela" }, new { @style="color:blue;"})
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}
+

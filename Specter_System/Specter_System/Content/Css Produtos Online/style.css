@@ -1,0 +1,28 @@
+﻿
+/* **************************** ESTILIZANDO AS IMAGENS ************************** */
+
+h2 {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+    .flex > div {
+        flex: 1 1 200px;
+        margin: 5px;
+    }
+
+/* ************* APLICANDO MÉDIA FOOTER ***************************** */
+/*
+@media screen and (min-width: 260px) and (max-width: 360px) {
+
+    .footer {
+        display: none !important;
+    }
+}*/

@@ -1,0 +1,116 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+</head>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdministrativo.cshtml";
+}
+
+<div class="container" style="padding-top: 1%">
+    <div class="col-md-12">
+        <div class="configdiv">
+            @using (Html.BeginForm("", "ControleProdutos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+
+                @model Specter_System.Models.Entitys.Produto
+
+            <div class="container-fluid" style="border: 1px solid black; border-radius: 20px ">
+                <div class="form-group row" style="padding-top: 2%">
+                    <label class="col-sm-2 col-form-label">Nome do Curso</label>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+                    </div>
+                    <div class="col-sm-2" , style="padding-left: 5%">
+                        @Html.TextBoxFor(model => model.Imagem, new { type = "file" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Data</label>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.Data, "{0:yyyy-MM-dd}", new { @class = "form-control", @style = "width: 87%", @type = "date" })
+                    </div>
+                    <label class="col-sm-1 col-form-label" , style="padding-left: 5%">Horário</label>
+                    <div class="col-sm-3" style="padding-left: 3%">
+                        @Html.TextBoxFor(model => model.Horario, new { @class = "form-control", style = "width: 62%", @type = "time" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Carga Horaria</label>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.Carga_Horaria, new { @class = "form-control", style = "width: 87%" })
+                    </div>
+                    <label class="col-sm-1 col-form-label" , style="padding-left: 5%">Valor</label>
+                    <div class="col-sm-3" style="padding-left:3%;">
+                        @Html.TextBoxFor(model => model.Valor, new { @class = "form-control", @style = "width: 62%", @type = "number" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Modalidade</label>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(model => model.Modalidade, new { @class = "form-control", style = "width: 87%" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Palestrante</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(model => model.Palestrante, new { @class = "form-control", sytle = "" })
+                    </div>
+
+                    <div class="col-sm-2">
+                        @Html.TextBoxFor(model => model.Imagem_Palestrante, new { type = "file" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Currículo</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(model=>model.CurriculoPalestrante, new { @class = "form-control", @placeholder="Informe o link do currículo"})
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Sobre</label>
+                    <div class="col-sm-6">
+                        @Html.TextAreaFor(model => model.Sobre, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Informações</label>
+                    <div class="col-sm-6">
+                        @Html.TextAreaFor(model => model.Informacoes, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Limites de Vagas</label>
+                    <div class="col-sm-2">
+                        @Html.TextBoxFor(model => Model.QuantidadeDeVagas, new { @class = "form-control" })
+                    </div>
+                </div>
+                @*<div class="form-group row">
+            <label class="col-sm-2 col-form-label">Imagen</label>
+            <div class="col-sm-4">
+               @Html.TextBoxFor(model => model.Imagem, new { @class = "form-control", type = "file", accept = "image/jpg,imagem/jpeg"})
+            </div>
+        </div>*@
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label"></label>
+                    <div class="col-sm-6">
+                        @Html.DisplayFor(model => model.LabResp, new { @class = "form-control" })
+
+                    </div>
+                </div>
+                <div style="padding-left:25%">
+                    <input type="submit" clss="btn btn-primary" value="SALVAR" name="action:Create" style="background-color: #002060; width: 20%; color:white" />
+                    <input type="submit" clss="btn btn-primary" value="PESQUISAR" name="action:Pesquisar" style="background-color: #002060; width: 20%;color: white" />
+                    <br /><br />
+                </div>
+            </div>
+
+                if (!string.IsNullOrWhiteSpace(ViewBag.CadastroCurso))
+                {
+                    <script>alert('@ViewBag.CadastroCurso');</script>
+                }
+            }
+        </div>
+    </div>
+</div>

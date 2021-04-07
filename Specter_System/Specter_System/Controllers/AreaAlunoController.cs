@@ -2,19 +2,23 @@
 using Specter_System.Models.Servicos.Business;
 using Specter_System.Models.Servicos.Infaces;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Text;
 using System.Web.Mvc;
 using System.Xml;
-using System.Text;
 
 namespace Specter_System.Controllers
 {
     public class AreaAlunoController : Controller
     {
 
-        // private INPedido appInscricao = new AppBusinessPedido();
+        private INPedido appPedido = new AppBusinessPedido();
         private INGrupo appGrupo = new AppBusinessGrupo();
+        private INUsuario appUsuario = new AppBusinessUsuario();
+        private INCertificado appCertificado = new AppBusinessCertificado();
+        private INProduto appProduto = new AppBusinessProduto();
 
         public ActionResult Index()
         {
@@ -23,7 +27,9 @@ namespace Specter_System.Controllers
 
         public ActionResult AlterarSenha()
         {
-            return View();
+            Usuario model = new Usuario();
+
+            return View(model);
         }
 
         [HttpPost]
@@ -58,7 +64,8 @@ namespace Specter_System.Controllers
         [MultipleButton(Name = "Action", Argument = "Inscricao")]
         public ActionResult Inscricao(Pedido model)
         {
-            string qdtComponentes = Request.Form["QtdIntegrantes"].ToString();
+            int qdtComponentes = Convert.ToInt32(Request.Form["QtdIntegrantes"].ToString());
+            double valorProduto = Convert.ToDouble(Session["sessionValorProduto"].ToString()); //Sessiona criada na classe CursosPresenciaisController
             var produto = Session["sessionProduto"] as Produto;
             
             Grupo grupo = new Grupo()
@@ -68,13 +75,28 @@ namespace Specter_System.Controllers
                 ConfSenha = model.Grupo.ConfSenha,
                 OpGrupo = "Criar",
                 Pessoa = Session["nomePessoa"].ToString(),
-                QtdComponentes = Convert.ToInt32(qdtComponentes),
+                QtdComponentes = qdtComponentes,
                 Produto = Session["sessionProduto"] as Produto
             };
 
-            ViewBag.Message = this.appGrupo.Cadastrar(grupo);
+            Pedido pedido = new Pedido()
+            {
+                Data = Convert.ToString(DateTime.Now.Date),
+                Horario = Convert.ToString(DateTime.Now.Hour),
+                Valor_Pedido = Convert.ToDecimal(valorProduto * qdtComponentes),
+                ValorPagamento = Convert.ToDecimal(this.CacularValorPagar(valorProduto, qdtComponentes)),
+                TipoInscricao = Request.Form["tipoInscricao"].ToString(),
+                Produto = produto,
+                Grupo = grupo,
+                Status = "Pendente",
+                Pessoa = Session["nomePessoa"].ToString()
+            };
 
-            if ("Já existe um grupo com este nome".Equals(ViewBag.Message))
+            Session["sessionPedido"] = pedido; //Criado uma SESSION de pedido para inserir os valor pagto no PAGSEGURO 
+
+            ViewBag.Message = this.appPedido.RealizarIncricao(pedido);
+
+            if (!"Pre inscricao realizado com sucesso".Equals(ViewBag.Message)) //Cria um objeto carregar os dados na View
             {
                 Session["sessionNomeProduto"] = produto.Nome;
                 Session["sessionValorProduto"] = Convert.ToDecimal(produto.Valor);
@@ -84,22 +106,30 @@ namespace Specter_System.Controllers
                     Grupo = grupo,
                     Produto = Session["sessionProduto"] as Produto
                 };
-
             }
-
-            else if ("".Equals(ViewBag.Message))
+            else
             {
                 Session["sessionNomeProduto"] = produto.Nome;
                 Session["sessionValorProduto"] = produto.Valor * 100;
-                return RedirectToAction("PagSeguro");
+
+                model = pedido;
             }
 
             return View(model);
 
         }
-        public ActionResult PagSeguro()
+
+        public ActionResult Sair()
         {
-            return View();
+            Usuario user = new Usuario()
+            {
+                Email = Session["usuarioLogado"].ToString(),
+                Status = false
+            };
+
+            this.appUsuario.SairLogin(user);
+            
+            return RedirectToAction("../Home/Index");
         }
 
         public ActionResult ConsultarPagamento()
@@ -107,10 +137,140 @@ namespace Specter_System.Controllers
             return View();
         }
 
+        public ActionResult CursosOnline()
+        {
+            Pedido pedido = new Pedido()
+            {
+                Pessoa = "Fabio Welber Santiago" //Session["nomePessoa"].ToString()
+            };
+
+            Pedidos model = this.appPedido.Pesquisar_Pedidos_Online(pedido);
+           
+            return View(model);
+        }
+
+        public ActionResult ExibirCursosOnlines(Produto model)
+        {
+            Produto produto = new Produto()
+            {
+                Nome = model.Nome
+            };
+
+            produto = this.appProduto.PesquisarVideos(model);
+
+            return View(produto);
+        }
+
+        public ActionResult ExibirCertificados()
+        {
+
+            List<Certificado> certificados = new List<Certificado>();
+            certificados.Add(
+                new Certificado()
+                {
+                    Curso = "Desenvolvimento Web",
+                    Data = "01/01/2021",
+                    Horario = "08:00",
+                    CargaHoraria = "120 hs"
+                }
+            );
+
+            Certificado certificado = new Certificado() { Certificados = certificados};
+           
+
+              return View(certificado);
+        }
+               
+        public ActionResult EmitirCertificado(Certificado model)
+        {
+            Certificado certificado = new Certificado()
+            {
+                Curso = "Desenvolvimento Web",
+                Data = "12/02/2020",
+                CargaHoraria = "140 hs",
+                Palestrante = "Emanuelle Cruz da Silva Santiago"
+                
+            };
+
+            return View(certificado);
+        }
+        
+        [HttpPost]
+        [MultipleButton(Name ="action", Argument= "ImprimirCertificado")]
+        public ActionResult ImprimirCertificado(Certificado model)
+        {
+
+            Certificado certificado = new Certificado()
+            {
+                Curso = model.Curso,
+                Data = model.Data,
+                CargaHoraria = model.CargaHoraria,
+                Palestrante = "Emanuellee Cruz da Silva Santiago",
+                Aluno = "Fabio Welber Santiago"
+            };
+
+            string resp = this.appCertificado.ImprimirCertificado(certificado);
+
+            return RedirectToAction("EmitirCertificado");
+        }
+
+        public ActionResult IntegrarGrupo()
+        {
+            Grupo grupo = this.appGrupo.ListarGrupos();
+
+            List<string> grupos = new List<string>();
+
+            foreach (var model in grupo.Grupos)
+            {
+                grupos.Add(model.Nome);
+            }
+
+            ViewBag.NomeGrupo = new MultiSelectList(grupos, "NomeGrupo");
+
+            return View(grupo);
+        }
+
+        private double CacularValorPagar(double valorProduto, int qtdComponentes)
+        {
+            double valor = 0;
+            double total = 0;
+
+            if (qtdComponentes == 2)
+            {
+                valor = valorProduto * 2;
+                total = Math.Round(valor - (valor * 0.02));
+
+            }
+            else if (qtdComponentes == 3)
+            {
+                valor = valorProduto * 3;
+                total = Math.Round(valor - (valor * 0.03));
+            }
+            else if (qtdComponentes == 4)
+            {
+                valor = valorProduto * 4;
+                total = Math.Round(valor - (valor * 0.04));
+            }
+            else if (qtdComponentes == 5)
+            {
+                valor = valorProduto * 5;
+                total = Math.Round(valor - (valor * 0.05));
+            }
+            else if(qtdComponentes == 6)
+            {
+                valor = valorProduto * 6;
+                total = Math.Round(valor - (valor * 0.06));
+            }
+
+            return total;
+        }
+
         [HttpPost]
         public JsonResult Checkout(string txtDescricao)
         {
-            Produto produto = Session["sessionProduto"] as Produto;
+            var pedido = Session["sessionPedido"] as Pedido;
+            var produto = Session["sessionProduto"] as Produto;
+         
             //URI de checkout.
             string uri = @"https://ws.pagseguro.uol.com.br/v2/checkout";
 
@@ -119,16 +279,16 @@ namespace Specter_System.Controllers
             postData.Add("email", "contatoexpertnutri@gmail.com");
             postData.Add("token", "bc3d065e-db52-48f7-9ce1-104ceb4297c2933005bf46dba229b0f79900ed8c1a938457-31c0-41d5-97e9-25856f6a31b8");
             postData.Add("currency", "BRL");
-            postData.Add("itemId1", "0001");
-            postData.Add("itemDescription1", produto.Nome);
-            postData.Add("itemAmount1", produto.Valor+".00");
+            postData.Add("itemId1", Convert.ToString(pedido.Produto.Codigo));
+            postData.Add("itemDescription1", pedido.Produto.Nome);
+            postData.Add("itemAmount1", pedido.ValorPagamento + ".00");
             postData.Add("itemQuantity1", "1");
             postData.Add("itemWeight1", "200");
-            postData.Add("reference", "REF1234");
-            postData.Add("senderName",  "Fabio Welber Santiago");
+            postData.Add("reference", "REF1234"); //Codigo do pedido
+            postData.Add("senderName",  pedido.Pessoa);
             postData.Add("senderAreaCode", "44");
             postData.Add("senderPhone", "999999999");
-            postData.Add("senderEmail", "comprador@uol.com.br");
+            postData.Add("senderEmail", Session["usuarioLogado"].ToString());
             postData.Add("shippingAddressRequired", "false");
 
             //String que receberá o XML de retorno.

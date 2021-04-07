@@ -1,0 +1,51 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+
+@model Specter_System.Models.Entitys.Produto
+
+@{
+    ViewBag.Title = "CarrinhoCompra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm(FormMethod.Post))
+{
+
+    <div style="padding-top: 10%; padding-left: 5%">
+
+        <h2 class="text-center">Carrinho de Compra</h2>
+
+        <h4>Produto</h4>
+        <hr />
+        <div class="form-group row">
+            <label class="col-form-label col-md-1"><b>Curso</b></label>
+            <div class="col-sm-6">
+                @Html.DisplayFor(model => model.Nome, new {nome = Model.Nome })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-md-1"><b>Modalidade</b></label>
+            <div class="col-sm-6">
+                @Html.DisplayFor(model => model.Modalidade, new { modalidade = Model.Modalidade })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-md-1"><b>Carga Horária</b></label>
+            <div class="col-sm-6">
+                @Html.DisplayFor(model => model.Carga_Horaria, new { cargaHoraria = Model.Carga_Horaria })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-md-1"><b>Valor</b></label>
+            <div class="col-sm-6">
+                @Html.DisplayFor(model => model.Valor, new { valor = Model.Valor })
+            </div>
+        </div>
+
+        <p>
+            <input type="submit" name="action:FinalizarCompra" class="btn btn-primary" value="FINALIZAR COMPRA" style=" background-color: #002060;" />
+        </p>
+    </div>
+
+}

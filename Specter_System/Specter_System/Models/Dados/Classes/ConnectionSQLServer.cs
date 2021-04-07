@@ -11,7 +11,9 @@ namespace Specter_System.Models.Dados.Classes
         {
             this.connection = new SqlConnection();
             this.connection.ConnectionString = "Persist Security Info=False;Integrated Security=true;Initial Catalog=expertnutri;server=DESKTOP-9VR0KPK\\MSSQLSERVER02";
-            //Persist Security Info=False;Integrated Security=true;Initial Catalog=expertnutri;server=DESKTOP-9VR0KPK\\MSSQLSERVER01"
+
+            //Persist Security Info=False;User Id=expertnutri;Password=$$Ncrpln2018;Initial Catalog=expertnutri;server=den1.mssql8.gear.host"
+            //Persist Security Info=False;Integrated Security=true;Initial Catalog=expertnutri;server=DESKTOP-9VR0KPK\\MSSQLSERVER02"
             //Server=vb800;Database=expertnutri;User Id=fabiowsantiago_SQLLogin_1;Password=$$Ncrpln2018$$
         }
 

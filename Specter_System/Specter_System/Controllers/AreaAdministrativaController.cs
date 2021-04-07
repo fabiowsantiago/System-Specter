@@ -13,5 +13,15 @@ namespace Specter_System.Controllers
         {
             return View();
         }
+
+        public ViewResult CadastroCursoPresencial()
+        {
+            return View();
+        }
+
+        public ViewResult CadastroCursoOnline()
+        {
+            return View();
+        }
     }
 }

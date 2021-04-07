@@ -9,9 +9,10 @@ namespace Specter_System.Models.Servicos.Business
     public class AppBusinessProduto : INProduto
     {
         private IPProduto appProduto = new AppPersistenciaProduto();
-        public List<Produto> ListarCursos(Produto curso)
+       
+        public List<Produto> ListarCursos(Produto model)
         {
-            List<Produto> cursos = appProduto.ListarCursosAbertos(curso);
+            List<Produto> cursos = this.appProduto.Listar_Cursos(model);
 
             return cursos;
         }
@@ -36,6 +37,23 @@ namespace Specter_System.Models.Servicos.Business
             }
 
             return curso;
+        }
+
+        public string CadastrarCursoOnline(Produto model)
+        {
+            string resp = string.Empty;
+           
+            bool respBanco = this.appProduto.CadastrarCursosOnline(model);
+            
+            if (respBanco == true)
+            {
+                    resp = "Salvo";
+            }
+               
+            else
+                resp = "Erro ao salvar produto";
+
+            return resp;
         }
 
         public List<Produto> PesquisarCursosPorModalidade(Produto model)
@@ -106,11 +124,32 @@ namespace Specter_System.Models.Servicos.Business
             return curso;
         }
 
+        public Produto Pesquisar_Sobre_Produto_Online(Produto model)
+        {
+            Produto produto = this.appProduto.SelectSobreProdutoOnline(model);
+
+            return produto;
+        }
+
         public List<Produto> PesquisarCursos(Produto curso)
         {
             List<Produto> listCursos = this.appProduto.PesquisarCursos(curso);
 
             return listCursos;
+        }
+
+        public string Pesquisar_Link(Produto model)
+        {
+            string link = this.appProduto.SelectLink(model);
+
+            return link;
+        }
+
+        public Produto PesquisarVideos(Produto model)
+        {
+            Produto produto = this.appProduto.SelectVideos(model);
+
+            return produto;
         }
     }
 }

@@ -1,0 +1,151 @@
+﻿
+
+@media (max-width: 280px) {
+
+    .containerResponsivo {
+        padding-top: 50%;
+        padding-left: 20%;
+    }
+
+        .containerResponsivo h2 {
+            padding-left: 0%;
+        }
+
+    .imagem {
+        height: 130px;
+        width: 170px;
+        left: 40px;
+    }
+
+    .tabela {
+        padding-left: 20%;
+    }
+
+    .tdEspaco {
+        display: table;
+        float: left;
+        margin-right: 80px
+    }
+
+    table {
+        border-spacing: 2px;
+    }
+
+    .logo {
+        height: 80px;
+        width: 110px;
+    }
+
+    h2 {
+        font-size: 60%;
+    }
+
+    /*------------------------------ RODAPE -----------------------*/
+
+    footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        height: 40px;
+        color: white;
+    }
+
+
+    .liRodape {
+        display: inline;
+        padding: 0px;
+        padding-left: 10px;
+    }
+
+
+    .liRodape2 {
+        display: inline;
+        padding: 0px;
+        padding-left: 20px;
+    }
+
+
+    .imagemRodape {
+        width: 30px;
+        height: 30px;
+    }
+
+    /*---------------------------- SOBRE A EMPRESA -----------------------------------*/
+
+}
+
+@media (max-width: 640px) {
+
+    * {
+        padding: 0px;
+        margin: 0px;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+    }
+
+    html, body {
+        height: 100%;
+        font-family: montserrat;
+        width: 100%;
+    }
+
+    header {
+        background-color: #002060;
+    }
+
+    .logo {
+        height: 60px;
+        width: 90px;
+    }
+
+    .containerResponsivo {
+        padding-top: 70%;
+        padding-left: 30%;
+    }
+
+    .containerResponsivo h2 {
+        padding-left: 0%;
+        font-size: 100%;
+    }
+
+    .imagem {
+        height: 130px;
+        width: 170px;
+        left: 40px;
+    }
+
+    /*------------------------------ RODAPE -----------------------*/
+
+    footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+       
+        color: white;
+    }
+
+    .liRodape {
+            display: inline;
+            padding: 0px;
+            
+    }
+
+
+    .liRodape2 {
+        display: inline;
+        padding: 0px;
+        padding-left: 20px;
+    }
+
+    .imagemRodape {
+        width: 120px;
+        height: 120px;
+    }
+
+    /*---------------------------- SOBRE A EMPRESA -----------------------------------*/
+
+    .sobreEmpresa{
+        padding-top: 40%;
+    }
+}

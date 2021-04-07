@@ -4,6 +4,7 @@ namespace Specter_System.Models.Servicos.Infaces
 {
     public interface INPedido
     {
-        Pedido ListarNomesGrupo();
+        string RealizarIncricao(Pedido model);
+        Pedidos Pesquisar_Pedidos_Online(Pedido model);
     }
 }

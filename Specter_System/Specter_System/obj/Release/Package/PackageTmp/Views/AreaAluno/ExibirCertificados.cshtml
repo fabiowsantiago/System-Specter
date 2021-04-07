@@ -1,0 +1,89 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/CssAreaAluno/styleAreaAluno.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+</head>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAreaAluno.cshtml";
+}
+
+@model Specter_System.Models.Entitys.Certificado
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @*@model List<Specter_System.Models.Entitys.Certificado>*@
+
+    <div style="padding-left: 25%; padding-top: 10%">
+        <div id="top" class="row" >
+            <div class="col-md-4">
+                <h2>Meus Certificados</h2>
+            </div>
+
+        </div>
+
+    <table class="table table-responsive table-responsive-md" id="tabela" style="width: 70%">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Curso)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Data)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CargaHoraria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model=>model.Palestrante)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Certificados)
+            {
+                <tr>
+                    <td style="width:30%">
+                        @Html.DisplayFor(modelItem => item.Curso)
+                    </td>
+                    <td style="width:2%">
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>
+                    <td style="width:2%">
+                        @Html.DisplayFor(modelItem => item.CargaHoraria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model=>item.Palestrante)
+                    </td>
+                    <td style="width: 25%">
+                        @Html.ActionLink("Emitir Certificado", "EmitirCertificado", new { nome = item.Curso, @class = "tabela" }, new { @style = "color:blue;" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+    
+    @*<div class="container-fluid" style="padding-top: 15%">
+            <div class="row">
+                @foreach (var curso in Model)
+                {
+                    <div class="col-xs-6 col-sm-4 sobreProdutosIndex">
+                        <figure>
+                            <img src="@Html.DisplayFor(model=>curso.image.CaminhoCurso)"  />
+                            <figcaption>
+                                <b>@Html.DisplayFor(model => curso.Nome)</b><br />
+                                <b>Modalidade:</b> @Html.DisplayFor(model => curso.Modalidade)<br />
+                                <b>Carga Horaria: </b>@Html.DisplayFor(model => curso.Carga_Horaria)
+                            <div>
+                                @Html.ActionLink("Saiba Mais", "Sobre", new { nome = curso.Nome })
+                            </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                }
+            </div>
+        </div>*@
+}
