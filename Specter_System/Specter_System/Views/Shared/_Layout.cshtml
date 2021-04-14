@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>Specter System</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/styleHome.css" rel="stylesheet" />
+    @*<link href="~/Content/styleHome.css" rel="stylesheet" />*@
     <link href="~/Content/cssMedia/Home/mediaHomeResponsivo.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
@@ -37,18 +37,18 @@
             <form class="form-inline my-2 my-lg-0">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Cadastre-se</a>
+                        <a class="nav-link" href="/Home/CadastrarPessoa">Cadastre-se</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="~/Home/Login">Login</a>
                     </li>
                 </ul>
             </form>
         </div>
     </nav>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #E0FFFF !important;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light subMenu" style="background-color: #E0FFFF !important;">
         <a><img src="~/Models/imagens/icones/logoMarca.png"></a>
-        <ul class="navbar-nav navbar navbar-expand-lg navbar-light mr-auto" style="background-color: #E0FFFF" mr-auto" id="menuPrincipal">
+        <ul class="navbar-nav navbar navbar-expand-lg navbar-light mr-auto" style="background-color: #E0FFFF" mr-auto" >
             <li class="nav-item"><a class="nav-link" href="~/Home/Index" style="color:black">INÍCIO</a></li>
             <li class="nav-item"><a class="nav-link" href="#" style="color:black">EVENTOS</a></li>
             <li class="nav-item"><a class="nav-link" href="~/Home/SobreEmpresa" style="color:black">SOBRE</a></li>

@@ -1,21 +1,130 @@
-﻿<head>
-
-    <link href="~/Content/CssAreaAluno/styleAreaAluno.css" rel="stylesheet" />
+﻿<!Doctype html>
+<html>
+<head>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/StyleTeste.css" rel="stylesheet" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="~/Content/cssMedia/AreaAluno/mediaAreaAluno.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
 </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #E0FFFF">
+        <a class="navbar-brand"><img src="~/Models/imagens/icones/logoMarca.png" class="img-fluid" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
-@{
-    Layout = "~/Views/Shared/_LayoutAreaAluno.cshtml";
-}
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" style="color: white">Início <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Meus Dados
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Alterar Dados</a></li>
+                        <li><a class="dropdown-item" href="#">Alterar Senha</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Meus Cursos
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Onlines</a></li>
+                        <li><a class="dropdown-item" href="#">Presenciais</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Meus Pedidos
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Meu Carrinho</a></li>
+                        <li><a class="dropdown-item" href="#">Acompanhar Pagamentos</a></li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#">Inscrições</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Integrar Grupo</a></li>
+                                @*<li><a class="dropdown-item" href="#">Another submenu action</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+                                    </ul>
+                                </li>*@
+                            </ul>
 
-<div class="container indexAreaAluno" style="padding-left: 15%; padding-top: 10%">
-    <div style="width: 100%">
-        <figure>
-            <a href="~/CursosOnline/Index"><img src="~/Models/imagens/icones/icone-online.png" style="width:35%; width:35%" class="imagemAreaAluno"/></a>
-            <a href="~/CursosPresenciais/Index"> <img src="~/Models/imagens/icones/icone-presenciais.png" style="width:35%; width:35%" class="imagemAreaAluno"/></a>
-        </figure>
-    </div>
-</div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sair</button>
+            </form>
+        </div>
+    </nav>
+
+    <form style="padding-top: 10rem">
+        <div class="form-group row">
+            
+            <a href="~/CursosOnline/Index" class="col-md-4 col-sm-4"><img src="~/Models/imagens/icones/icone-online(1).png" class="img-fluid" /></a>
+            <div class="col-md-4 col-sm-4">
+                <a href="~/CursosPresenciais/Index"><img src="~/Models/imagens/icones/icone-presenciais(1).png" class="img-fluid" /></a>
+            </div>
+            <div cçass="col-md-4 col-sm-4"></div>
+        </div>
+    </form>
+
+    @*<div>
+            <div>
+                <div>
+                    <h2>Nossos Cursos</h2>
+                </div>
+                <div class="table-responsive tabela" style="padding-left: 5rem;">
+                    <table class="table table-borderless" cellspacing="20">
+                        <tbody>
+                            <tr>
+                                <td class="tdEspaco">
+                                    <a href="~/CursosOnline/Index"><img src="~/Models/imagens/icones/icone-online.png" class="img-responsive" /></a>
+                                </td>
+                                <td class="tdEspaco">
+                                    <a href="~/CursosPresenciais/Index"><img src="~/Models/imagens/icones/icone-presenciais.png" class="img-responsive" /></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>*@
+
+    <script>
+        $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
+            if (!$(this).next().hasClass('show')) {
+                $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+            }
+            var $subMenu = $(this).next(".dropdown-menu");
+            $subMenu.toggleClass('show');
+
+
+            $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
+                $('.dropdown-submenu .show').removeClass("show");
+            });
+
+            return false;
+        });
+    </script>
+</body>
+</html>

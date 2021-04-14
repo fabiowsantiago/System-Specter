@@ -1,0 +1,66 @@
+﻿<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<nav>
+    <ul class="nav justify-content-end" style="background-color: #002060">
+        <li class="nav-item">
+            <a class="nav-link active" href="#"></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" style="color:white">Cadastre-se</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" style="color:white" href="#">Login</a>
+        </li>
+    </ul>
+</nav>
+<nav style="background-color: #E0FFFF">
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link"><img src="~/Models/imagens/icones/logoMarca.png" /></a></li>
+        <li class="nav-item" style="padding-top: 2rem;"><a class="nav-link" href="~/Home/Index" style="color:black">INÍCIO</a></li>
+        <li class="nav-item" style="padding-top: 2rem;"><a class="nav-link" href="#" style="color:black">EVENTOS</a></li>
+        <li class="nav-item" style="padding-top: 2rem;"><a class="nav-link" href="~/Home/Sobre" style="color:black">SOBRE</a></li>
+    </ul>
+</nav>
+
+<div class="container-fluid h-75" style="padding-top: 1rem">
+    <div class="row h-75 justify-content-center align-items-center" @*style="padding-top: 2rem;"*@>
+
+        <div class="w-75 p-3 h-72 d-inline-block" style=" border-radius: 65px; background-color: #002060;">
+            @using (Html.BeginForm(FormMethod.Post))
+            {
+                <div style="padding-left: 4rem;padding-top: 1rem">
+                    <div class="form-group row">
+                        <label class="col-md-4"></label>
+                        <div class="col-md-6">
+                            <img src="~/Models/imagens/icones/Boneco Login.png" width="80" height="80" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="col-form-label col-md-5" style="color:white">Endereço de email</label>
+                        <div class="col-md-10">
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" class="col-form-label col-md-3" style="color:white">Senha</label>
+                        <div class="col-md-10">
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4"></label>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-primary">ENTRAR</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

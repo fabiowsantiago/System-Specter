@@ -1,75 +1,76 @@
 ﻿<head>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/styleHome.css" rel="stylesheet" />
-    @*<meta name="viewport" content="width=device-width, initial-scale=1" />*@
-    @*<link href="~/Content/cssMedia/Home/mediaLogin.css" rel="stylesheet" />*@
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/Content/cssMedia/Home/mediaLogin.css" rel="stylesheet" />
+
     <script src="~/Scripts/ScriptsMensagens.js"></script>
+
     <meta charset="utf-8" />
 </head>
 
 @model Specter_System.Models.Entitys.Usuario
 
-<nav class="navbar-expand-lg" style="background-color:#002060">
-    <ul class="navbar navbar-expand-md justify-content-end">
-        <li class="nav-item"><a class="nav-link" href="~/Home/Login" style="color:white">LOGIN</a></li>
-        <li class="nav-item"><a class="nav-link" href="~/Home/CadastrarPessoa" style="color:white">CADASTRE-SE</a></li>
+<nav style="background-color:#002060">
+    <ul class="menu1" >
+        <li><a href="~/Home/Login" style="color:white">LOGIN</a></li>
+        <li><a href="~/Home/CadastrarPessoa" style="color:white">CADASTRE-SE</a></li>
     </ul>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #E0FFFF">
-        <a><img src="~/Models/imagens/icones/logoMarca.png" /></a>
-        <div>
-            <ul class="navbar navbar-collapse mr-auto">
-                <li class="nav-item"><a class="nav-link" href="~/Home/Index" style="color:black">INÍCIO</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" style="color:black">EVENTOS</a></li>
-                <li class="nav-item"><a class="nav-link" href="~/Home/Sobre" style="color:black">SOBRE</a></li>
-            </ul>
-        </div>
+    <nav class="menu2" style="background-color: #E0FFFF">
+        <ul class="">
+            <li><a><img src="~/Models/imagens/icones/logoMarca.png" /></a></li>
+            <li><a class="menu2-item" href="~/Home/Index" style="color:black">INÍCIO</a></li>
+            <li><a class="menu2-item" href="#" style="color:black">EVENTOS</a></li>
+            <li><a class="menu2-item" href="~/Home/Sobre" style="color:black">SOBRE</a></li>
+        </ul>
+       
     </nav>
 </nav>
-<div style=" padding-left:30%;padding-top:1%">
-    <div>
-        @{
-            using (Html.BeginForm(FormMethod.Post))
+
+<div class="divLogin">
+    @{
+        using (Html.BeginForm(FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+
+            <fieldset style="border-radius:65px; width:60%; background-color: #002060; height:405px;">
+                <div class="form-group justify-content-center" style="padding-left:40%; padding-top: 2%">
+                    <img src="~/Models/imagens/icones/Boneco Login.png" width="80" height="80" />
+                </div>
+                <div class="form-group justify-content-center divEmail">
+                    <label class="col-form-label" style="color:white">Seu E-mail</label>
+                    <div class="form-group justify-content-center">
+                        <input type="text" id="Email" name="Email" class="form-control" placeholder="Informe seu e-mail de cadastro" required="required" />
+                        <div class="form-group row" style="color:white; padding-left:4%">
+                            @Html.ActionLink("Esqueceu o e-mail?", "RecuperarEmail")
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group justify-content-center divSenha">
+                    <label class="col-form-label" style="color:white;" >Senha</label>
+                    <div class="form-group justify-content-center">
+                        <input type="password" id="Senha" name="Senha" class="form-control" placeholder="Informe sua senha" required />
+                        <div class="form-group row" style="color:white; padding-left:4%">
+                            @Html.ActionLink("Esqueceu a senha?", "RecuperarSenha", new { @style = "color: White;" })
+                        </div>
+                    </div>
+                    <div class="buttonLogin">
+                        <input type="submit" class="btn btn-primary btn-lg" name="action:Login" value="ENTRAR" style="background-color:#E0FFFF; color:black" />
+                    </div>
+
+                </div>
+            </fieldset>
+
+            if (ViewBag.Validacao != null)
             {
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary()
-
-                <fieldset style="border-radius:65px; width:60%; background-color: #002060; height:405px;">
-                    <div class="form-group justify-content-center" style="padding-left:40%; padding-top: 2%">
-                        <img src="~/Models/imagens/icones/Boneco Login.png" width="80" height="80" />
-                    </div>
-                    <div class="form-group justify-content-center">
-                        <label class="col-sm-6 col-form-label" style="color:white; padding-left:20%">Seu E-mail</label>
-                        <div class="form-group justify-content-center" style="padding-left:20%">
-                            <input type="text" id="Email" name="Email" class="form-control" placeholder="Informe seu e-mail de cadastro" style="width:75%" required="required"/>
-                            <div class="form-group row" style="color:white; padding-left:4%">
-                                @Html.ActionLink("Esqueceu o e-mail?", "RecuperarEmail")
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group justify-content-center">
-                        <label class="col-sm-6 col-form-label" style="color:white; padding-left:20%">Senha</label>
-                        <div class="form-group justify-content-center" style="padding-left:20%">
-                            <input type="password" id="Senha" name="Senha" class="form-control" placeholder="Informe sua senha" style="width: 75%" required/>
-                            <div class="form-group row" style="color:white; padding-left:4%">
-                                @Html.ActionLink("Esqueceu a senha?", "RecuperarSenha", new { @style = "color: White;" })
-                            </div>
-                        </div>
-                        <div style="padding-left: 40%;">
-                            <input type="submit" class="btn btn-primary btn-lg" name="action:Login" value="ENTRAR" style="background-color:#E0FFFF; color:black" />
-                        </div>
-
-                    </div>
-                </fieldset>
-
-                if (ViewBag.Validacao != null)
-                {
-                    <script type="text/javascript">
+                <script type="text/javascript">
                        ValidarLogin('@ViewBag.Validacao')
-                    </script>
-                }
+                </script>
             }
         }
-    </div>
+
+    }
+
 </div>
 

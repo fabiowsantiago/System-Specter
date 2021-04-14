@@ -143,13 +143,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AreaAdministrativaController.cs" />
     <Compile Include="Controllers\AreaAlunoController.cs" />
-    <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\ControleProdutosController.cs" />
     <Compile Include="Controllers\CursosOnlineController.cs" />
     <Compile Include="Controllers\CursosPresenciaisController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InscricaoController.cs" />
     <Compile Include="Controllers\MultipleButtonAttribute.cs" />
+    <Compile Include="Controllers\TesteLoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -244,11 +244,6 @@
     <Content Include="Lib\jQuery-Mask-Plugin-master\test\zepto\data.js" />
     <Content Include="Lib\jQuery-Mask-Plugin-master\test\zepto\event.js" />
     <Content Include="Lib\jQuery-Mask-Plugin-master\test\zepto\zepto.min.js" />
-    <Content Include="Models\imagens\catalogo\curso1.jpg" />
-    <Content Include="Models\imagens\catalogo\curso2.jpg" />
-    <Content Include="Models\imagens\catalogo\curso3.jpg" />
-    <Content Include="Models\imagens\catalogo\curso4.jpg" />
-    <Content Include="Models\imagens\catalogo\curso5.jpg" />
     <Content Include="Rotativa\help-wkhtmltoimage.txt" />
     <Content Include="Rotativa\help-wkhtmltopdf.txt" />
     <Content Include="Rotativa\wkhtmltoimage.exe" />
@@ -340,6 +335,7 @@
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\ScriptInscricao.js" />
+    <Content Include="Scripts\scriptMenu.js" />
     <Content Include="Scripts\ScriptProduto.js" />
     <Content Include="Scripts\ScriptProdutosOnline.js" />
     <Content Include="Scripts\ScriptsMensagens.js" />
@@ -474,7 +470,7 @@
     <Content Include="Views\AreaAluno\ExibirCursosOnlines.cshtml" />
     <Content Include="Views\ControleProdutos\Editar.cshtml" />
     <Content Include="Views\CursosOnline\CarrinhoCompra.cshtml" />
-    <Content Include="Views\Catalogo\Index.cshtml" />
+    <Content Include="Views\TesteLogin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

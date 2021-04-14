@@ -1,17 +1,417 @@
-﻿
-@media (max-width: 640px)
-{
-    .loginResponsivo{
-        padding-top: 8%;
-       
+﻿@media screen and (min-width: 300px) and (max-width: 360px){
+
+    .menu1 {
+        height: 1.5rem;
+        padding-left: 11rem !important;
     }
 
-    .telaLogin {
-        border-radius: 65px;
-        width: 80%;
-        background-color: #002060;
-        height: 100px;
+        .menu1 li {
+            display: inline;
+        }
+
+    .menu1 li a{
+        text-decoration: none;
+        padding: 0.6rem;
+        font-size: 0.8rem;
     }
 
+    .menu2 img{
+        width: 6rem;
+        height: 5rem;
+    }
 
+    .menu2 li{
+        display: inline;
+    }
+
+    .menu2-item{
+        text-decoration: none !important;
+        padding: 0.3rem;
+        font-size: 0.9rem;
+    }
+
+     .divLogin {
+       padding-top: 0.5rem;
+        padding-left: 1.5rem;
+    }
+
+    fieldset {
+        height: 28rem !important;
+        width: 20rem !important;
+    }
+
+    fieldset .imagemBoneco {
+        padding-left: 4.5rem;
+    }
+
+    fieldset img {
+        padding-top: 1rem;
+        width: 4rem;
+        height: 5rem;
+    }
+
+    fieldset .email {
+        padding-top: 1rem !important;
+    }
+
+    .divEmail {
+        padding-left: 1rem;
+    }
+
+    .divSenha {
+        padding-left: 1rem;
+    }
+
+    #email {
+        padding-left: 2rem;
+        width: 18rem;
+    }
+
+    #Senha {
+        padding-left: 2rem;
+        width: 18rem;
+    }
+
+    .buttonLogin{
+        padding-top: 1rem;
+        padding-left: 6.1rem !important;
+    }
+}
+
+
+@media screen and (min-width: 361px) and (max-width: 411px) {
+
+    .menu1 {
+        padding-top: 0.5rem;
+        height: 1.8rem;
+        padding-left: 15rem !important;
+    }
+
+        .menu1 li {
+            display: inline;
+        }
+
+            .menu1 li a {
+                text-decoration: none;
+                padding: 0.6rem;
+                font-size: 0.8rem;
+            }
+
+    .menu2 img {
+        width: 6rem;
+        height: 5rem;
+    }
+
+    .menu2 li {
+        display: inline;
+    }
+
+    .menu2-item {
+        text-decoration: none !important;
+        padding: 0.3rem;
+        font-size: 0.9rem;
+    }
+
+    .divLogin {
+        padding-top: 0.8rem;
+        padding-left: 1.5rem;
+    }
+
+    fieldset {
+        height: 28rem !important;
+        width: 23rem !important;
+    }
+
+        fieldset img {
+            padding-top: 1rem;
+            width: 5rem;
+            height: 6rem;
+        }
+
+        fieldset .email {
+            padding-top: 1rem !important;
+        }
+
+    .divEmail {
+        padding-left: 1rem;
+    }
+
+    .divSenha {
+        padding-left: 1rem;
+    }
+
+    #email {
+        padding-left: 2rem;
+        width: 20rem;
+    }
+
+    #Senha {
+        padding-left: 2rem;
+        width: 20rem;
+    }
+
+    .buttonLogin {
+        padding-top: 1rem;
+        padding-left: 6.7rem !important;
+    }
+}
+
+
+@media screen and (min-width: 412px) and (max-width: 414px) {
+
+    .menu1 {
+        padding-top: 0.5rem;
+        height: 1.8rem;
+        padding-left: 15rem !important;
+    }
+
+        .menu1 li {
+            display: inline;
+        }
+
+            .menu1 li a {
+                text-decoration: none;
+                padding: 0.6rem;
+                font-size: 0.8rem;
+            }
+
+    .menu2 img {
+        width: 6rem;
+        height: 5rem;
+    }
+
+    .menu2 li {
+        display: inline;
+    }
+
+    .menu2-item {
+        text-decoration: none !important;
+        padding: 0.3rem;
+        font-size: 0.9rem;
+    }
+
+    .divLogin {
+        padding-top: 0.8rem;
+        padding-left: 1.5rem;
+    }
+
+    fieldset {
+        height: 28rem !important;
+        width: 23rem !important;
+    }
+
+        fieldset img {
+            padding-top: 1rem;
+            width: 5rem;
+            height: 6rem;
+        }
+
+        fieldset .email {
+            padding-top: 1rem !important;
+        }
+
+    .divEmail {
+        padding-left: 1rem;
+    }
+
+    .divSenha {
+        padding-left: 1rem;
+    }
+
+    #email {
+        padding-left: 2rem;
+        width: 20rem;
+    }
+
+    #Senha {
+        padding-left: 2rem;
+        width: 20rem;
+    }
+
+    .buttonLogin {
+        padding-top: 1rem;
+        padding-left: 6.7rem !important;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .menu1 {
+        padding-top: 0.5rem;
+        height: 1.8rem;
+        padding-left: 53rem !important;
+    }
+
+        .menu1 li {
+            display: inline;
+        }
+
+            .menu1 li a {
+                text-decoration: none;
+                padding: 0.6rem;
+                font-size: 0.8rem;
+            }
+
+    .menu2 img {
+        width: 6rem;
+        height: 5rem;
+    }
+
+    .menu2 li {
+        display: inline;
+    }
+
+    .menu2-item {
+        text-decoration: none !important;
+        padding: 0.3rem;
+        font-size: 0.9rem;
+    }
+
+    .divLogin {
+        
+        padding-left: 11rem;
+    }
+
+    fieldset {
+        height: 28rem !important;
+        width: 45rem !important;
+    }
+
+        fieldset img {
+            width: 7rem;
+            height: 7rem;
+        }
+
+        fieldset .email {
+            padding-top: 1rem !important;
+        }
+
+    .divEmail {
+        padding-left: 1rem;
+    }
+
+    .divSenha {
+        padding-left: 1rem;
+    }
+
+    #email {
+        padding-left: 2rem;
+        width: 40rem;
+    }
+
+    #Senha {
+        padding-left: 2rem;
+        width: 40rem;
+    }
+
+    .buttonLogin {
+        padding-top: 1rem;
+        padding-left: 17rem !important;
+    }
+}
+
+/**/
+
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+
+    .menu1 {
+        padding-top: 0.5rem;
+        height: 1.8rem;
+        padding-left: 74rem !important;
+    }
+
+        .menu1 li {
+            display: inline;
+        }
+
+            .menu1 li a {
+                text-decoration: none;
+                padding: 0.6rem;
+                font-size: 0.8rem;
+            }
+
+    .menu2 img {
+        width: 6rem;
+        height: 5rem;
+    }
+
+    .menu2 li {
+        display: inline;
+    }
+
+    .menu2-item {
+        text-decoration: none !important;
+        padding: 0.3rem;
+        font-size: 0.9rem;
+    }
+
+    .divLogin {
+        padding-top: 1.0rem;
+        padding-left: 18rem;
+    }
+
+    fieldset {
+        height: 28rem !important;
+        width: 45rem !important;
+    }
+
+        fieldset img {
+            width: 7rem;
+            height: 7rem;
+        }
+
+        fieldset .email {
+            padding-top: 1rem !important;
+        }
+
+    .divEmail {
+        padding-left: 1rem;
+    }
+
+    .divSenha {
+        padding-left: 1rem;
+    }
+
+    #email {
+        padding-left: 2rem;
+        width: 40rem;
+    }
+
+    #Senha {
+        padding-left: 2rem;
+        width: 40rem;
+    }
+
+    .buttonLogin {
+        padding-top: 1rem;
+        padding-left: 17rem !important;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+
+    .login {
+        padding-top: 2rem;
+        padding-left: 40rem;
+    }
+
+    fieldset {
+        height: 35rem;
+        width: 80rem;
+    }
+
+        fieldset .imagemBoneco {
+            padding-left: 35rem;
+        }
+
+        fieldset img {
+            padding-top: 3rem;
+            width: 8rem;
+            height: 10rem;
+        }
+
+
+        fieldset .email {
+            padding-top: 2rem !important;
+        }
 }

@@ -67,17 +67,8 @@ footer {
     height: 25px;
 }
 
-/*----------------------------- SOBRE ------------------------------*/
-.sobre {
-    padding-top: 15%;
-}
-
-    .sobre p {
-        padding-left: 90px;
-    }
-
 /*------------------------------TELA LOGIN -----------------------------*/
-.telaLogin {
+/*.telaLogin {
     border-radius: 65px;
     width: 60%;
     background-color: #002060;
@@ -93,7 +84,7 @@ footer {
 .containerResponsivo h2{
     padding-left: 20%
 }
-
+*/
 /*------------------------ FORMATAÇÃO DA VIEW RECUPERAR E-MAIL ---------------------- */
 
 .recuperarEmail {

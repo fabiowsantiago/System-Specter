@@ -1,10 +1,261 @@
-﻿@media screen and (min-width: 260px) and (max-width: 360px){
+﻿
+@media screen and (min-width: 260px) and (max-width: 360px){
 
+  /************************* Página Home **********************/
+    .subMenu{
+
+        list-style: none;
+    }
+
+    .subMenu ul{
+        padding-left: 1rem;
+        display: inline !important;
+    }
+
+    .subMenu img{
+
+        height: 4rem;
+        width: 5rem;
+    }
+        
     .tabela {
         padding-left: 2rem !important;
-        /*padding-top: 1rem !important;*/
+        padding-left: 6rem !important;
+    }
+
+    .home h2{
+        font-size: 2rem;
+        padding-top: 1rem;
+        padding-left: 1rem;
+    }
+
+    .tabela img{
+        height: 8rem;
+        width: 10rem;
+    }
+
+    .footer ul li a{
+        font-size: 0.9rem !important;
+        padding-left: 1rem;
+    }
+
+    /*************************** SOBRE *******************************/
+    .sobre {
+        padding-top: 1.5rem;
+    }
+    .sobre h3{
+        font-size: 1.4rem;
+        padding-left: 1rem;
+    }
+
+    .sobre p{
+        padding-left: 1rem;
+        font-size: 0.7rem;
     }
 }
+
+@media screen and (min-width: 365px) and (max-width: 411px){
+
+    /************************* Página Home **********************/
+    .subMenu ul {
+        padding-left: 1rem;
+        display: inline;
+    }
+
+    .subMenu img {
+        height: 5rem;
+        width: 6rem;
+    }
+
+    .home h2 {
+        font-size: 2rem;
+        padding-top: 1rem;
+        padding-left: 3rem;
+    }
+
+    .tabela {
+        padding-left: 7.5rem !important;
+        padding-top: 1rem;
+    }
+
+    
+    .tabela img {
+        height: 10rem;
+        width: 12rem;
+    }
+
+    .footer ul li a {
+        font-size: 0.9rem !important;
+        padding-left: 1rem;
+    }
+
+    /*************************** SOBRE *******************************/
+    .sobre h3 {
+        font-size: 1.4rem;
+        padding-left: 1rem;
+    }
+
+    .sobre p {
+        padding-left: 1rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 413px) {
+
+    /************************* Página Home **********************/
+    .subMenu ul {
+        padding-left: 1rem;
+        display: inline;
+    }
+
+    .subMenu img {
+        height: 5rem;
+        width: 6rem;
+    }
+
+    .home h2 {
+        font-size: 2rem;
+        padding-top: 1rem;
+        padding-left: 3rem;
+    }
+
+    .tabela {
+        padding-left: 7.5rem !important;
+        padding-top: 1rem;
+    }
+
+
+        .tabela img {
+            height: 9rem;
+            width: 11rem;
+        }
+
+    .footer ul li a {
+        font-size: 0.9rem !important;
+        padding-left: 1rem;
+    }
+
+    /*************************** SOBRE *******************************/
+    .sobre {
+        padding-top: 3rem;
+    }
+
+    .sobre h3 {
+        font-size: 1.5rem;
+        padding-left: 1rem;
+    }
+
+    .sobre p {
+        padding-left: 1rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (min-width: 414px) and (max-width: 700px) {
+
+    /************************* Página Home **********************/
+    .subMenu ul {
+        padding-left: 1rem;
+        display: inline;
+    }
+
+    .subMenu img {
+        height: 5rem;
+        width: 6rem;
+    }
+
+    .home h2 {
+        font-size: 2rem;
+        padding-top: 1rem;
+        padding-left: 3rem;
+    }
+
+    .tabela {
+        padding-left: 7.5rem !important;
+        padding-top: 1rem;
+    }
+
+
+    .tabela img {
+        height: 9rem;
+        width: 11rem;
+    }
+
+    .footer ul li a {
+        font-size: 0.9rem !important;
+        padding-left: 1rem;
+    }
+
+    /*************************** SOBRE *******************************/
+    .sobre {
+        padding-top: 2.6rem;
+        padding-left: 1rem;
+    }
+
+   .sobre h3 {
+        font-size: 1.5rem;
+        padding-left: 1rem;
+   }
+
+        .sobre p {
+            padding-left: 1rem;
+            font-size: 0.7rem;
+        }
+}
+
+@media (min-width: 768) and (max-width: 900px) {
+
+    /************************* Página Home **********************/
+    .subMenu ul {
+        padding-left: 1rem;
+        display: inline;
+    }
+
+    .subMenu img {
+        height: 5rem;
+        width: 6rem;
+    }
+
+    .home h2 {
+        font-size: 2rem;
+        padding-top: 1rem;
+        padding-left: 3rem;
+    }
+
+    .tabela {
+        padding-left: 7.5rem !important;
+        padding-top: 1rem;
+    }
+
+
+        .tabela img {
+            height: 9rem;
+            width: 11rem;
+        }
+
+    .footer ul li a {
+        font-size: 0.9rem !important;
+        padding-left: 1rem;
+    }
+
+    /*************************** SOBRE *******************************/
+    .sobre {
+        padding-top: 2.6rem;
+        padding-left: 1rem;
+    }
+
+        .sobre h3 {
+            font-size: 1.5rem;
+            padding-left: 1rem;
+        }
+
+        .sobre p {
+            padding-left: 1rem;
+            font-size: 0.7rem;
+        }
+}
+
 
 @media screen and (min-width: 980px) and (max-width: 1020px){
 
@@ -24,5 +275,29 @@
     .tabela {
         padding-left: 25rem !important;
         padding-top: 3rem !important;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+
+    h2 {
+        padding-left: 65rem !important;
+        padding-top: 6rem !important;
+        font-size: 4rem;
+    }
+
+    .tabela {
+        padding-left: 50rem !important;
+        padding-top: 3rem !important;
+    }
+
+    .imagem{
+        width: 30rem !important;
+        height: 25rem !important;
+    }
+
+    .sobre{
+        padding-top: 2rem;
+        padding-left: 2rem;
     }
 }
